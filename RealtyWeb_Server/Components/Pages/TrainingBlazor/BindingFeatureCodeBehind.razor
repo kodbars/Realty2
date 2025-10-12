@@ -1,0 +1,41 @@
+﻿@page "/trainingBlazor/BindingFeatureCodeBehind"
+@inherits BindingFeatureBehavior
+
+<h3>Наниматель</h3>
+Ф.И.О.: @tenant.Fio
+<br />
+Оповещать: @tenant.IsSend
+<br />
+Этого нанимателя: @(tenant.IsSend ? "Оповещать" : "Не оповещать")
+<br />
+Выбран телефон: @selectedPhone
+@if (!string.IsNullOrEmpty(selectedPhone))
+{
+    <p style="margin:0;">Номер: @tenant.Phones.FirstOrDefault(x => x.TypePhone.Equals(selectedPhone))?.NumberPhone</p>
+}
+<br />
+Оповещать:
+<input type="checkbox" @bind-value="@tenant.IsSend" checked="@(tenant.IsSend ? "checked" : null)" />
+<br />
+Комиссия: @tenant.Commission
+<br />
+Комиссия:
+<input type="number" step="0.01" @bind="@tenant.Commission" />
+<br />
+@*Комиссия: <input type="number" step="0.01" @bind="@tenant.Commission" @bind:event="oninput" />
+<br />*@
+Комиссия:
+<input type="number" step="0.01" @bind-value="@tenant.Commission" @bind-value:event="oninput" />
+<br />
+@*<button @onclick="ButtonClicked" @ondblclick="ButtonDoubleClicked">Нажми здесь</button>*@
+<button @onclick="() => ButtonClicked(true)" @ondblclick='() => ButtonDoubleClicked("Кнопка нажата дважды")'>Нажми здесь</button>
+<br />
+<h4>@Status</h4>
+Телефоны:
+<select @onchange="SelectedPhonesChanged">
+    <option value="">--Выберите элемент--</option>
+    @foreach (var phone in tenant.Phones)
+    {
+        <option value="@phone.TypePhone">@phone.TypePhone</option>
+    }
+</select>

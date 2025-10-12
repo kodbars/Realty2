@@ -1,0 +1,57 @@
+﻿@page "/trainingBlazor/listTenants"
+
+<h3>Список нанимателей</h3>
+<_DataList Data="@tenants">
+    @context.Fio, @context.Dr.ToString("dd.MM.yyyy"), Договор: @context.DateContact.ToString("dd.MM.yyyy"), Комиссия: @context.Commission.ToString("#.00") руб.
+</_DataList>
+
+@code {
+    List<Tenant> tenants = new List<Tenant>()
+    {
+        new Tenant()
+        {
+            Id = 1,
+            Fio = "Иванов Алексей Владимирович",
+            Dr = DateTime.Parse("01.12.1980", CultureInfo.GetCultureInfo("ru")),
+            DateContact = DateTime.Parse("10.10.2024", CultureInfo.GetCultureInfo("ru")),
+            Commission = 12000.50d,
+            IsSend = true,
+            Phones = new List<Phone>()
+            {
+                new Phone(){Id = 1, TypePhone = "Мобильный", NumberPhone = "+79257863538" },
+                new Phone(){Id = 2, TypePhone = "Домашний", NumberPhone = "2607060" },
+                new Phone(){Id = 3, TypePhone = "Рабочий", NumberPhone = "2355050" }
+            }
+        },
+        new Tenant()
+        {
+            Id = 2,
+            Fio = "Кузнецова Анна Петровна",
+            Dr = DateTime.Parse("20.10.1985", CultureInfo.GetCultureInfo("ru")),
+            DateContact = DateTime.Parse("15.03.2024", CultureInfo.GetCultureInfo("ru")),
+            Commission = 14000.15d,
+            IsSend = true,
+            Phones = new List<Phone>()
+            {
+                new Phone(){Id = 1, TypePhone = "Мобильный", NumberPhone = "+79257867625" },
+                new Phone(){Id = 2, TypePhone = "Домашний", NumberPhone = "2601050" },
+                new Phone(){Id = 3, TypePhone = "Рабочий", NumberPhone = "2552040" }
+            }
+        }
+    };
+    Tenant tenant = new Tenant()
+        {
+            Id = 1,
+            Fio = "Иванов Алексей Владимирович",
+            Dr = DateTime.Parse("01.12.1980", CultureInfo.GetCultureInfo("ru")),
+            DateContact = DateTime.Parse("10.10.2024", CultureInfo.GetCultureInfo("ru")),
+            Commission = 12000.50d,
+            IsSend = true,
+            Phones = new List<Phone>()
+            {
+                new Phone(){Id = 1, TypePhone = "Мобильный", NumberPhone = "+79257863538" },
+                new Phone(){Id = 2, TypePhone = "Домашний", NumberPhone = "2607060" },
+                new Phone(){Id = 3, TypePhone = "Рабочий", NumberPhone = "2355050" }
+            }
+        };
+}

@@ -1,0 +1,43 @@
+﻿<div class="col-5 border p-3 bg-light me-2 mt-2 mb-2" @onclick="() => LastClickedTenant(row.Fio)">
+    <h4 class="text-secondary">Наниматель - @row.Id</h4>
+    <div class="checkbox-wrapper-2">
+        Постоянный клиент:
+        <input type="checkbox" class="sc-gJwTLC ikxBAC" @onchange="RegularCustomerUpdate"><br /><br />
+    </div> 
+    Ф.И.О.: @row.Fio <br />
+    Отрисовка из родителя - #@StringFirst #@StringSecond
+    <div>Оповещать: <input type="checkbox" @bind-value="@row.IsSend" checked="@(row.IsSend ? "checked" : null)" /></div>
+    @if (row.IsSend)
+    {
+        @foreach (var item in row.Phones)
+        {
+            <p>@item.TypePhone - @item.NumberPhone</p>
+        }
+    }
+    <_ChangeDeleteButton IsSend="row.IsSend"></_ChangeDeleteButton>
+</div>
+
+@code {
+    [Parameter]
+    public Tenant row { get; set; }
+    [Parameter]
+    public EventCallback<bool> OnRegularCustomerSelection { get; set; }
+    [Parameter]
+    public EventCallback<string> OnClickedTenant { get; set; }
+    [Parameter]
+    public RenderFragment? StringFirst { get; set; }
+    [Parameter]
+    public RenderFragment? StringSecond { get; set; }
+    private async Task LastClickedTenant(string fio)
+    {
+        await OnClickedTenant.InvokeAsync(fio);
+    }
+    private async Task RegularCustomerUpdate(ChangeEventArgs e)
+    {
+        if (e.Value != null)
+        {
+            await OnRegularCustomerSelection.InvokeAsync((bool)e.Value);
+        }
+    }
+
+}

@@ -1,0 +1,10 @@
+﻿@if (IsSend)
+{
+    <button class="btn-danger">Удалить</button>
+    <button class="btn-success">Изменить</button>
+}
+
+@code {
+    [Parameter]
+    public bool IsSend { get; set; }
+}

@@ -1,0 +1,22 @@
+﻿.input-box {
+    /* родительский блок относительно которого будем формировать положение
+  тега label */
+    position: relative;
+}
+
+input {
+    background: #fff;
+    padding: 10px;
+    /* закруглим края у поля ввода */
+    border-radius: 11px;
+    width: 200px;
+}
+
+label {
+    position: absolute;
+    /* смещение относительно родительского элемента 10px вверх от верхнего края и   10px влево */
+    top: -10px;
+    left: 10px;
+    background: #fff;
+    padding: 0 5px;
+}

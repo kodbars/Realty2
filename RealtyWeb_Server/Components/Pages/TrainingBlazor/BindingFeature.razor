@@ -1,0 +1,129 @@
+﻿@page "/trainingBlazor/bindingFeature"
+
+<h3>Наниматель</h3>
+<div class="row">
+    <div class="col-6 border p-3">
+        <h3 class="text-primary">Панель упарвления</h3>
+        <div>Оповещать: <input type="checkbox" @bind-value="@tenant.IsSend" checked="@(tenant.IsSend ? "checked" : null)" /></div>
+        <div>Комиссия: <input type="number" step="0.01" @bind-value="@tenant.Commission" @bind-value:event="oninput" /></div>
+        <div><button @onclick="() => ButtonClicked(true)" @ondblclick='() => ButtonDoubleClicked("Кнопка нажата дважды")'>Нажми здесь</button></div>
+        <div>
+            Телефоны:
+            <select @onchange="SelectedPhonesChanged">
+                <option value="">--Выберите элемент--</option>
+                @foreach (var phone in tenant.Phones)
+                {
+                    <option value="@phone.TypePhone">@phone.TypePhone</option>
+                }
+            </select>
+        </div>
+    </div>
+    <div class="col-6 border p-3">
+        <h3 class="text-primary">Сводка</h3>
+        Ф.И.О.: @tenant.Fio <br />
+        Оповещать: @tenant.IsSend <br />
+        Комиссия: @tenant.Commission <br />
+        Этого нанимателя: @(tenant.IsSend ? "Оповещать" : "Не оповещать") <br />
+        Выбран телефон: @selectedPhone
+        @if (!string.IsNullOrEmpty(selectedPhone))
+        {
+            <p style="margin:0;">Номер: @tenant.Phones.FirstOrDefault(x => x.TypePhone.Equals(selectedPhone))?.NumberPhone</p>
+        }<br />
+        <h4>@Status</h4>
+    </div>
+</div>
+<h2 class="text-success">Список нанимателей</h2>
+<div class="table-responsive">
+    <table class="table table-striped table-bordered">
+        <tbody>
+            @foreach (var row in tenants)
+            {
+                <tr>
+                    <td><input type="text" @bind-value="@row.Fio" @bind-value:event="oninput"/></td>
+                    <td><input type="number" step="0.01" @bind-value="@row.Commission" @bind-value:event="oninput"/></td>
+                    <td><input type="checkbox" @bind-value="@row.IsSend" checked="@(row.IsSend ? "checked" : null)" /></td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
+<br />
+<h2>Сводка по нанимателям</h2>
+<div class="table-responsive">
+    <table>
+        @foreach (var row in tenants)
+        {
+            <tr>
+                <td>@row.Fio [@row.Commission] рассылка: @(row.IsSend ? "Оповещать" : "Не оповещать")</td>
+            </tr>
+        }
+    </table>
+</div>
+
+@code {
+    string Status { get; set; } = "Кнопка ещё не нажата!";
+    private string selectedPhone = string.Empty;
+    List<Tenant> tenants = new List<Tenant>()
+    {
+        new Tenant()
+        {
+            Id = 1,
+            Fio = "Иванов Алексей Владимирович",
+            Dr = DateTime.Parse("01.12.1980", CultureInfo.GetCultureInfo("ru")),
+            DateContact = DateTime.Parse("10.10.2024", CultureInfo.GetCultureInfo("ru")),
+            Commission = 12000.50d,
+            IsSend = true,
+            Phones = new List<Phone>()
+            {
+                new Phone(){Id = 1, TypePhone = "Мобильный", NumberPhone = "+79257863538" },
+                new Phone(){Id = 2, TypePhone = "Домашний", NumberPhone = "2607060" },
+                new Phone(){Id = 3, TypePhone = "Рабочий", NumberPhone = "2355050" }
+            }
+        },
+        new Tenant()
+        {
+            Id = 2,
+            Fio = "Кузнецова Анна Петровна",
+            Dr = DateTime.Parse("20.10.1985", CultureInfo.GetCultureInfo("ru")),
+            DateContact = DateTime.Parse("15.03.2024", CultureInfo.GetCultureInfo("ru")),
+            Commission = 14000.15d,
+            IsSend = true,
+            Phones = new List<Phone>()
+            {
+                new Phone(){Id = 1, TypePhone = "Мобильный", NumberPhone = "+79257867625" },
+                new Phone(){Id = 2, TypePhone = "Домашний", NumberPhone = "2601050" },
+                new Phone(){Id = 3, TypePhone = "Рабочий", NumberPhone = "2552040" }
+            }
+        }
+    };
+    Tenant tenant = new Tenant()
+        {
+            Id = 1,
+            Fio = "Иванов Алексей Владимирович",
+            Dr = DateTime.Parse("01.12.1980", CultureInfo.GetCultureInfo("ru")),
+            DateContact = DateTime.Parse("10.10.2024", CultureInfo.GetCultureInfo("ru")),
+            Commission = 12000.50d,
+            IsSend = true,
+            Phones = new List<Phone>()
+            {
+                new Phone(){Id = 1, TypePhone = "Мобильный", NumberPhone = "+79257863538" },
+                new Phone(){Id = 2, TypePhone = "Домашний", NumberPhone = "2607060" },
+                new Phone(){Id = 3, TypePhone = "Рабочий", NumberPhone = "2355050" }
+            }
+        };
+    void SelectedPhonesChanged(ChangeEventArgs e)
+    {
+        if (e.Value is not null)
+        {
+            selectedPhone = (string) e.Value;
+        }
+    }
+    private void ButtonClicked(bool isSingleClick)
+    {
+        Status = $"Кнопка нажата один раз {isSingleClick}";
+    }
+    private void ButtonDoubleClicked(string status)
+    {
+        Status = status;
+    }
+}

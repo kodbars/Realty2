@@ -1,0 +1,120 @@
+﻿* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', sans-serif;
+    background: #f4f4f4;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+.fixed-bottom-menu {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 15px 30px;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+}
+
+.menu-list {
+    display: flex;
+    list-style: none;
+    gap: 20px;
+}
+
+.menu-item {
+    position: relative;
+}
+
+    .menu-item > a {
+        color: #333;
+        text-decoration: none;
+        padding: 10px; /* чуть меньше, так как шрифт крупный */
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: white;
+        border-radius: 8px;
+        font-size: 32px; /* ← вот он, большой "+" */
+        font-weight: bold;
+        transition: all 0.3s ease;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        border: 2px solid #ddd;
+        background-size: 200% 100%;
+        background-position: 0% 50%;
+        width: 60px; /* фиксированная ширина (опционально) */
+        height: 60px; /* фиксированная высота (опционально) */
+    }
+
+        .menu-item > a:hover {
+            /* Включаем градиент и анимацию при наведении */
+            background: linear-gradient(90deg, #6d23db, #239edb, #6d23db);
+            background-size: 200% 100%;
+            animation: gradientShift 2s ease infinite alternate;
+            color: white; /* текст лучше сделать белым на ярком фоне */
+            transform: translateY(-2px);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+            border-color: transparent; /* убираем серую рамку, если нужно */
+        }
+
+/* Анимация перелива */
+@keyframes gradientShift {
+    0% {
+        background-position: 0% 50%;
+    }
+
+    100% {
+        background-position: 100% 50%;
+    }
+}
+
+.submenu {
+    position: absolute;
+    bottom: 100%;
+    left: 50%;
+    transform: translateX(-50%) translateY(-10px);
+    background: white;
+    list-style: none;
+    padding: 8px 0;
+    min-width: 160px;
+    border-radius: 8px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+    z-index: 1001;
+    margin-bottom: 10px;
+}
+
+.menu-item:hover .submenu {
+    opacity: 1;
+    visibility: visible;
+    transform: translateX(-50%) translateY(0);
+}
+
+.submenu li a {
+    color: #333;
+    text-decoration: none;
+    padding: 10px 20px;
+    display: block;
+    transition: background 0.3s ease;
+    text-align: center;
+}
+
+    .submenu li a:hover {
+        background: #f0f0f0;
+    }
+
+.main-content {
+    flex: 1;
+    padding: 20px;
+    text-align: center;
+}

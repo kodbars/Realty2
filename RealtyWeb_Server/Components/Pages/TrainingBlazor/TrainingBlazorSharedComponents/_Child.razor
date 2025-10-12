@@ -1,0 +1,55 @@
+﻿<style>
+    .boxChild {
+        background-color: aqua;
+        border: solid green;
+        width: 210px;
+        margin-left: 30px;
+        margin-bottom: 10px;
+        padding: 5px;
+    }
+</style>
+<div class="box" style="width:300px;">
+    <h3 style="padding:5px;">Дочерний компонент</h3>
+    <div class="boxChild">
+        @if (First_ChildContent != null)
+        {
+            <h4>@First_ChildContent</h4>
+        } 
+        else
+        {
+            @if (ChildContent != null)
+            {
+                <h4>@ChildContent</h4>
+            }  
+            else
+            {
+                <h4>Привет из пустого фрагмента для отрисовки</h4>
+            }
+        }
+    </div>
+    <div class="boxChild">
+        <h4>@Another_ChildContent</h4>
+    </div>
+    @if (!string.IsNullOrEmpty(msgText))
+    {
+        <div class="alert alert-warning">@msgText</div>
+    }
+    <button class="btn btn-danger m-1" @onclick="OnButtonPress">Нажми кнопку</button>
+</div>  
+
+
+@code {
+    public string msgText { get; set; } = string.Empty;
+    public void ShowMsg()
+    {
+        msgText = "Сообщение из дочернего компонента";    
+    }
+    [Parameter]
+    public RenderFragment? ChildContent { get; set; }
+    [Parameter]
+    public RenderFragment? First_ChildContent { get; set; }
+    [Parameter]
+    public RenderFragment? Another_ChildContent { get; set; }
+    [Parameter]
+    public EventCallback OnButtonPress { get; set; }
+}
