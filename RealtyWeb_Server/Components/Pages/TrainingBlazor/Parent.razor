@@ -6,19 +6,43 @@
         border: 5px solid purple;
     }
 </style>
+<style>
+    .boxParent {
+        background-color: lightgray;
+        border: 5px solid gray;
+        margin-top: 15px;
+        width: 450px;
+        padding: 5px
+    }
+</style>
+
+<h5 class="boxParent">Родитель</h5>
+<CascadingValue Value=@Message Name="Message">
+    <CascadingValue Value="@Money" Name="Money">
+        <_ChildComponent></_ChildComponent>
+    </CascadingValue>
+</CascadingValue>
+<br />
+
+<_OtherChild placeholder="Заполнитель из родителя"></_OtherChild>
+<br />
+
 <h3 class="box" style="width:300px;padding:5px;">Родитель</h3>
 <br />
+
 <_Child @ref="child" OnButtonPress="ShowAlert">
     <ChildContent>Сообщение из родителя!</ChildContent>
     <First_ChildContent>Это первый дочерний компонент!</First_ChildContent>
     <Another_ChildContent>Отправлено от другого дочернего компонента.</Another_ChildContent>
-    </_Child>
+</_Child>
 <h4>@alertText</h4>
 
 <input @ref="@textInput" />
 <button @onclick="() => textInput.FocusAsync()">Фокус</button>
 
 @code {
+    public string Money { get; set; } = "20000";
+    public string Message { get; set; } = "Привет из родителя(Parent.razor)!";
     public _Child? child { get; set; }
     public string alertText { get; set; } = string.Empty;
     ElementReference textInput;

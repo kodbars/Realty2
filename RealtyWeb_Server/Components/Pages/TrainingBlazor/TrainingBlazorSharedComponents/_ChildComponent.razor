@@ -1,0 +1,21 @@
+﻿<style>
+    .boxChildComponent{
+        background-color: palegreen;
+        border: 5px solid black;
+        width: 400px;
+        margin-left: 30px;
+        margin-bottom: 10px;
+        padding: 5px;
+    }
+</style>
+
+<div class="boxChildComponent">
+    <h5 class="m-1">Ребенок</h5>
+    <h6>@Message</h6>
+</div>
+<_GrandChild></_GrandChild>
+
+@code {
+    [CascadingParameter]
+    public string Message { get; set; } = null!;
+}

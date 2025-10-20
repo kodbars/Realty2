@@ -1,0 +1,12 @@
+﻿<div>
+    <h4 class="text-primary pt-3">Другой дочерний компонент</h4>
+    <form>
+        <input @attributes="CustomAttributes" />
+        <button class="btn btn-success">Отправить</button>
+    </form>
+</div>
+
+@code {
+    [Parameter(CaptureUnmatchedValues = true)]
+    public Dictionary<string, object> CustomAttributes { get; set; } = new Dictionary<string, object>();
+}

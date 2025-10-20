@@ -1,0 +1,20 @@
+﻿<style>
+    .boxGreatGrandChild {
+        background-color: lightblue;
+        border: 5px solid darkviolet;
+        width: 330px;
+        margin-left: 60px;
+        margin-bottom: 10px;
+        padding: 5px;
+    }
+</style>
+
+<div class="boxGreatGrandChild">
+    <h5 class="m-1">Правнук</h5>
+    <h6>@Message</h6>
+</div>
+
+@code {
+    [CascadingParameter]
+    public int Message { get; set; }
+}

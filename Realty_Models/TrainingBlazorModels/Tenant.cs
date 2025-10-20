@@ -14,6 +14,6 @@ namespace Realty_Models.TrainingBlazorModels
         public DateTime DateContact { get; set; } //Дата договора
         public double Commission { get; set; } //Размер комиссионного вознаграждения
         public bool IsSend { get; set; } //Отправлять уведомления
-        public IEnumerable<Phone> Phones { get; set; } //Список контактных телефонов
+        public IEnumerable<Phone>? Phones { get; set; } //Список контактных телефонов
     }
 }

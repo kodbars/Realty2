@@ -1,0 +1,24 @@
+﻿<style>
+    .boxGrandChild{
+        background-color: wheat;
+        border: 5px solid black;
+        width: 360px;
+        margin-left: 50px;
+        margin-bottom: 10px;
+        padding: 5px;
+    }
+</style>
+
+<div class="boxGrandChild">
+    <h5 class="m-1">Внук</h5>
+    <h6>Строка: @MessageDifferentName</h6>
+    <h6>Число: @MoneyForGrandChild</h6>
+</div>
+<_GreatGrandChild></_GreatGrandChild>
+
+@code {
+    [CascadingParameter(Name = "Message")]
+    public string MessageDifferentName { get; set; } = null!;
+    [CascadingParameter(Name = "Money")]
+    public string MoneyForGrandChild { get; set; } = null!;
+}

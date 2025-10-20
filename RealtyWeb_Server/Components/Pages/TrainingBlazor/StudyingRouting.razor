@@ -1,0 +1,30 @@
+﻿@page "/studyingRouting"
+@page "/trainingBlazor/studyingRouting/{first_parameter}"
+@page "/trainingBlazor/studyingRouting/{first_parameter}/{second_parameter}"
+@inject NavigationManager _navigation
+
+<h3>Учим маршрутизацию</h3>
+<h4>Параметр 1: @First_Parameter</h4>
+<h4>Параметр 2: @Second_Parameter</h4>
+<a href="studyingRouting?First_Param=Realty&Second_Param=Blazor" class="btn btn-primary">Переход к запросу с парамтерами</a>
+<button class="btn btn-success" @onclick="ExtraParams">Извлечь параметры</button>
+<br />
+<h3>Параметры строки запроса</h3>
+<h4>Парам. 1: @First_Param</h4>
+<h4>Парам. 2: @Second_Param</h4>
+
+@code {
+    [Parameter]
+    public string First_Parameter { get; set; }
+    [Parameter]
+    public string Second_Parameter { get; set; }
+    public string? First_Param { get; set; }
+    public string? Second_Param { get; set; }
+    private void ExtraParams()
+    {
+        var absoluteUrl = new Uri(_navigation.Uri);
+        var queryParam = System.Web.HttpUtility.ParseQueryString(absoluteUrl.Query);
+        First_Param = queryParam["First_Param"] ?? string.Empty;
+        Second_Param = queryParam["Second_Param"] ?? string.Empty;
+    }
+}
