@@ -1,25 +1,49 @@
 ﻿@page "/studyingRouting"
 @page "/trainingBlazor/studyingRouting/{first_parameter}"
-@page "/trainingBlazor/studyingRouting/{first_parameter}/{second_parameter}"
+@page "/trainingBlazor/studyingRouting/{first_parameter?}/{second_parameter:int?}"
 @inject NavigationManager _navigation
 
 <h3>Учим маршрутизацию</h3>
 <h4>Параметр 1: @First_Parameter</h4>
 <h4>Параметр 2: @Second_Parameter</h4>
-<a href="studyingRouting?First_Param=Realty&Second_Param=Blazor" class="btn btn-primary">Переход к запросу с парамтерами</a>
+@*<a href="studyingRouting?First_Param=Realty&Second_Param=Blazor" class="btn btn-primary">Переход к запросу с парамтерами</a> аналогично тегу ниже*@
+@*<NavLink href="studyingRouting?First_Param=Realty&Second_Param=Blazor" class="btn btn-primary">Переход к запросу с парамтерами</NavLink>*@
+<button class="btn btn-primary" @onclick="GoToQueryParam">Переход к запросу с парамтерами</button>
 <button class="btn btn-success" @onclick="ExtraParams">Извлечь параметры</button>
 <br />
 <h3>Параметры строки запроса</h3>
 <h4>Парам. 1: @First_Param</h4>
 <h4>Парам. 2: @Second_Param</h4>
+<h3>@GetAddress(City, Street, House)</h3>
 
 @code {
     [Parameter]
+    [SupplyParameterFromQuery]
+    public string? City { get; set; }
+    [Parameter]
+    [SupplyParameterFromQuery]
+    public string? Street{ get; set; }
+    [Parameter]
+    [SupplyParameterFromQuery(Name = "User-House")]
+    public int? House { get; set; }
+    string GetAddress(string? city, string? street, int? house)
+    {
+        string result = string.Empty;
+        if (!string.IsNullOrEmpty(city)) result += city + " ";
+        if (!string.IsNullOrEmpty(street)) result += street + " ";
+        if (house != null) result += house + " ";
+        return result.Trim();
+    }
+    [Parameter]
     public string First_Parameter { get; set; }
     [Parameter]
-    public string Second_Parameter { get; set; }
+    public int Second_Parameter { get; set; }
     public string? First_Param { get; set; }
     public string? Second_Param { get; set; }
+    private void GoToQueryParam()
+    {
+        _navigation.NavigateTo("studyingRouting?First_Param=Realty&Second_Param=Blazor");
+    }
     private void ExtraParams()
     {
         var absoluteUrl = new Uri(_navigation.Uri);

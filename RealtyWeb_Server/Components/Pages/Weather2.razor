@@ -1,0 +1,26 @@
+﻿@page "/weather2"
+@inject NavigationManager _navigation
+
+<button class="btn btn-primary" @onclick="NavigateToRelativeURL">Относительный URL</button>
+<button class="btn btn-primary" @onclick="NavigateToAbsoluteURL">Абсолютный URL</button>
+<button class="btn btn-primary" @onclick="NavigateWithForseLoad">Форсированная загрузка</button>
+<button class="btn btn-primary" @onclick="NavigateWithReplaceHistory">Заменить историю</button>
+
+@code {
+    private void NavigateToRelativeURL()
+    {
+        _navigation.NavigateTo("weather2");
+    }
+    private void NavigateToAbsoluteURL()
+    {
+        _navigation.NavigateTo("https://learn.microsoft.com/ru-ru/aspnet/core");
+    }
+    private void NavigateWithForseLoad()
+    {
+        _navigation.NavigateTo("weather2", true);
+    }
+    private void NavigateWithReplaceHistory()
+    {
+        _navigation.NavigateTo("weather2", true, true);
+    }
+}

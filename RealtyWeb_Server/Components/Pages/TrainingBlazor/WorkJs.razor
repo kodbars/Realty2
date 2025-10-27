@@ -1,0 +1,58 @@
+﻿@page "/trainingBlazor/workJs"
+@inject IJSRuntime _JS
+
+<h3>Работа с JavaScript</h3>
+<div>
+    <button class="btn btn-primary" @onclick="ShowConfirm">Кнопка подтверждения</button>
+</div>
+<br />
+<div>
+    @if (IsConfirm)
+    {
+        <span class="label success">Было сделано подтверждение!</span>
+    }
+    else
+    {
+        <span class="label warning">Подтверждение не было получено!</span>
+    }
+</div>
+<br />
+<div class="row">
+    <div class="col">
+        <buttn class="btn btn-success" @onclick="ShowNotyfSuccess" style="width:200px;">Успех Notyf</buttn>
+        <buttn class="btn btn-danger" @onclick="ShowNotyfFallure" style="width:200px;">Неудача Notyf</buttn>
+    </div>
+</div>
+
+
+@code {
+    private string ConfirmText = "Ты уверен, что хочешь нажать?";
+    private bool IsConfirm { get; set; }
+    private async Task ShowConfirm()
+    {
+        IsConfirm = await _JS.InvokeAsync<bool>("confirm", ConfirmText);
+    }
+    private async Task ShowNotyfSuccess()
+    {
+        await _JS.InvokeVoidAsync("DisplayNotyf", "success", "Операция выполнена успешно!");
+    }
+    private async Task ShowNotyfFallure()
+    {
+        await _JS.InvokeVoidAsync("DisplayNotyf", "error", "Операция не удалась!");
+    }
+}
+
+<style>
+    .label {
+        color: white;
+        padding: 8px;
+    }
+
+    .success {
+        background-color: green;
+    }
+
+    .warning {
+        background-color:orange;
+    }
+</style>

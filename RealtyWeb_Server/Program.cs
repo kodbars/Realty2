@@ -17,9 +17,10 @@ if (!app.Environment.IsDevelopment())
 }
 else
 {
-    app.UseDeveloperExceptionPage(); //Режим разработки, показывает ошибке. В рабочем приложении лучше убрать
+    app.UseDeveloperExceptionPage(); //Режим разработки, показывает ошибки. В рабочем приложении лучше убрать
 }
 
+app.UseStatusCodePagesWithRedirects("~/StatusCode/{0}");
 app.UseHttpsRedirection();
 
 app.UseStaticFiles(); //Станица 29
