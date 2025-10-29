@@ -34,6 +34,7 @@
     }
     private async Task ShowNotyfSuccess()
     {
+        await _JS.NotyfSuccess("Операция выполнена успешно!");
         await _JS.InvokeVoidAsync("DisplayNotyf", "success", "Операция выполнена успешно!");
     }
     private async Task ShowNotyfFallure()
