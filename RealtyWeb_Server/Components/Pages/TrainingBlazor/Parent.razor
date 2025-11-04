@@ -40,12 +40,24 @@
 <input @ref="@textInput" />
 <button @onclick="() => textInput.FocusAsync()">Фокус</button>
 
+<br />
+<div class="row mt-1">
+    <div class="col">
+        <buttn class="btn btn-success" @onclick="ShowNotyf" style="width:200px;">Успех Notyf</buttn>
+    </div>
+</div>
+
 @code {
     public string Money { get; set; } = "20000";
     public string Message { get; set; } = "Привет из родителя(Parent.razor)!";
     public _Child? child { get; set; }
     public string alertText { get; set; } = string.Empty;
     ElementReference textInput;
+
+    private void ShowNotyf()
+    {
+        child?.ShowNotyfSuccess();
+    }
     private void ShowAlert()
     {
         alertText = "Кнопка нажата из дочернего компонента";

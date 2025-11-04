@@ -23,11 +23,27 @@
         <buttn class="btn btn-danger" @onclick="ShowNotyfFallure" style="width:200px;">Неудача Notyf</buttn>
     </div>
 </div>
+<br />
+<div class="row">
+    <div class="col">
+        <buttn class="btn btn-success" @onclick="SweetAlertSuccess" style="width:200px;">Успех SweetAlert2</buttn>
+        <buttn class="btn btn-danger" @onclick="SweetAlertFallure" style="width:200px;">Неудача SweetAlert2</buttn>
+    </div>
+</div>
 
 
 @code {
     private string ConfirmText = "Ты уверен, что хочешь нажать?";
     private bool IsConfirm { get; set; }
+
+    private async Task SweetAlertSuccess()
+    {
+        await _JS.InvokeVoidAsync("ShowSweetAlert", "success", "Процедура завершена успешн!");
+    }
+    private async Task SweetAlertFallure()
+    {
+        await _JS.InvokeVoidAsync("ShowSweetAlert", "error", "Операция не удалась!");
+    }
     private async Task ShowConfirm()
     {
         IsConfirm = await _JS.InvokeAsync<bool>("confirm", ConfirmText);

@@ -1,13 +1,5 @@
-﻿<style>
-    .boxChild {
-        background-color: aqua;
-        border: solid green;
-        width: 210px;
-        margin-left: 30px;
-        margin-bottom: 10px;
-        padding: 5px;
-    }
-</style>
+﻿@inject IJSRuntime _JS
+
 <div class="box" style="width:300px;">
     <h3 style="padding:5px;">Дочерний компонент</h3>
     <div class="boxChild">
@@ -40,6 +32,10 @@
 
 @code {
     public string msgText { get; set; } = string.Empty;
+    public async Task ShowNotyfSuccess()
+    {
+        await _JS.NotyfSuccess("Операция выполнена успешно!");
+    }
     public void ShowMsg()
     {
         msgText = "Сообщение из дочернего компонента";    
@@ -53,3 +49,14 @@
     [Parameter]
     public EventCallback OnButtonPress { get; set; }
 }
+
+<style>
+    .boxChild {
+        background-color: aqua;
+        border: solid green;
+        width: 210px;
+        margin-left: 30px;
+        margin-bottom: 10px;
+        padding: 5px;
+    }
+</style>
