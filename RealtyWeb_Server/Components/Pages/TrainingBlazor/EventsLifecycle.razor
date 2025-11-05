@@ -1,0 +1,27 @@
+﻿@page "/trainingBlazor/eventsLifecycle"
+
+<h3>События жизненного цикла</h3>
+<br />
+<div class="border bg-light mt-2 ms-4">
+    <_LifecycleNested></_LifecycleNested>
+</div>
+<hr />
+@foreach (var item in LogEvents)
+{
+    <h6>@item</h6>
+    <hr />
+}
+
+@code {
+    List<string> LogEvents = new List<string>();
+    protected override void OnInitialized()
+    {
+        LogEvents.Add("OnInitialized вызван");
+    }
+
+    protected override async Task OnInitializedAsync()
+    {
+        LogEvents.Add("OnInitializedAsync вызван");
+        await Task.Delay(100);
+    }
+}

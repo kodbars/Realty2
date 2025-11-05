@@ -39,8 +39,8 @@
             @foreach (var row in tenants)
             {
                 <tr>
-                    <td><input type="text" @bind-value="@row.Fio" @bind-value:event="oninput"/></td>
-                    <td><input type="number" step="0.01" @bind-value="@row.Commission" @bind-value:event="oninput"/></td>
+                    <td><input type="text" @bind-value="@row.Fio" @bind-value:event="oninput" /></td>
+                    <td><input type="number" step="0.01" @bind-value="@row.Commission" @bind-value:event="oninput" /></td>
                     <td><input type="checkbox" @bind-value="@row.IsSend" checked="@(row.IsSend ? "checked" : null)" /></td>
                 </tr>
             }
@@ -63,39 +63,40 @@
 @code {
     string Status { get; set; } = "Кнопка ещё не нажата!";
     private string selectedPhone = string.Empty;
-    List<Tenant> tenants = new List<Tenant>()
+    List<Tenant> tenants = new List<Tenant>();
+    protected override void OnInitialized()
     {
-        new Tenant()
-        {
-            Id = 1,
-            Fio = "Иванов Алексей Владимирович",
-            Dr = DateTime.Parse("01.12.1980", CultureInfo.GetCultureInfo("ru")),
-            DateContact = DateTime.Parse("10.10.2024", CultureInfo.GetCultureInfo("ru")),
-            Commission = 12000.50d,
-            IsSend = true,
-            Phones = new List<Phone>()
+        tenants.Add(new Tenant()
+            {
+                Id = 1,
+                Fio = "Иванов Алексей Владимирович",
+                Dr = DateTime.Parse("01.12.1980", CultureInfo.GetCultureInfo("ru")),
+                DateContact = DateTime.Parse("10.10.2024", CultureInfo.GetCultureInfo("ru")),
+                Commission = 12000.50d,
+                IsSend = true,
+                Phones = new List<Phone>()
             {
                 new Phone(){Id = 1, TypePhone = "Мобильный", NumberPhone = "+79257863538" },
                 new Phone(){Id = 2, TypePhone = "Домашний", NumberPhone = "2607060" },
                 new Phone(){Id = 3, TypePhone = "Рабочий", NumberPhone = "2355050" }
             }
-        },
-        new Tenant()
-        {
-            Id = 2,
-            Fio = "Кузнецова Анна Петровна",
-            Dr = DateTime.Parse("20.10.1985", CultureInfo.GetCultureInfo("ru")),
-            DateContact = DateTime.Parse("15.03.2024", CultureInfo.GetCultureInfo("ru")),
-            Commission = 14000.15d,
-            IsSend = true,
-            Phones = new List<Phone>()
+            });
+        tenants.Add(new Tenant()
+            {
+                Id = 2,
+                Fio = "Кузнецова Анна Петровна",
+                Dr = DateTime.Parse("20.10.1985", CultureInfo.GetCultureInfo("ru")),
+                DateContact = DateTime.Parse("15.03.2024", CultureInfo.GetCultureInfo("ru")),
+                Commission = 14000.15d,
+                IsSend = true,
+                Phones = new List<Phone>()
             {
                 new Phone(){Id = 1, TypePhone = "Мобильный", NumberPhone = "+79257867625" },
                 new Phone(){Id = 2, TypePhone = "Домашний", NumberPhone = "2601050" },
                 new Phone(){Id = 3, TypePhone = "Рабочий", NumberPhone = "2552040" }
             }
-        }
-    };
+            });
+    }
     Tenant tenant = new Tenant()
         {
             Id = 1,
