@@ -1,6 +1,7 @@
 ﻿
 <h3>Дочерний компонент</h3>
 <hr />
+<h6>Счетчик: @CountValue</h6>
 @foreach (var item in LogEvents)
 {
     <h6>@item</h6>
@@ -9,6 +10,12 @@
 
 @code {
     List<string> LogEvents = new List<string>();
+    [Parameter]
+    public int CountValue { get; set; }
+    protected override void OnParametersSet()
+    {
+        LogEvents.Add("Вложеный - OnParametersSet вызван");
+    }
     protected override void OnInitialized()
     {
         LogEvents.Add("Вложеный - OnInitialized вызван");

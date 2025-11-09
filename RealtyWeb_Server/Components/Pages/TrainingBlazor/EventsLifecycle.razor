@@ -1,27 +1,57 @@
 ﻿@page "/trainingBlazor/eventsLifecycle"
 
 <h3>События жизненного цикла</h3>
+<button class="btn btn-primary" @onclick="IncreaseCounter">Обновить счетчик</button>
 <br />
-<div class="border bg-light mt-2 ms-4">
-    <_LifecycleNested></_LifecycleNested>
-</div>
-<hr />
 @foreach (var item in LogEvents)
 {
     <h6>@item</h6>
     <hr />
 }
+<div class="border bg-light mt-2 ms-4">
+    <_LifecycleNested CountValue="Counter"></_LifecycleNested>
+</div>
+<hr />
 
 @code {
     List<string> LogEvents = new List<string>();
+    public int Counter { get; set; }
+    protected override void OnAfterRender(bool firstRender)
+    {
+        LogEvents.Add("OnAfterRender вызван");
+        Console.WriteLine("OnAfterRender вызван");
+    }
+
+    protected override async Task OnAfterRenderAsync(bool firstRender)
+    {
+        LogEvents.Add("OnAfterRenderAsync вызван");
+        Console.WriteLine("OnAfterRenderAsync вызван");
+    }
+
+    protected override void OnParametersSet()
+    {
+        LogEvents.Add("OnParametersSet вызван");
+        Console.WriteLine("OnParametersSet вызван");
+    }
+
+    protected override async Task OnParametersSetAsync()
+    {
+        LogEvents.Add("OnParametersSetAsync вызван");
+        Console.WriteLine("OnParametersSet вызван");
+    }
     protected override void OnInitialized()
     {
         LogEvents.Add("OnInitialized вызван");
+        Console.WriteLine("OnInitialized вызван");
     }
 
     protected override async Task OnInitializedAsync()
     {
         LogEvents.Add("OnInitializedAsync вызван");
-        await Task.Delay(100);
+        Console.WriteLine("OnInitializedAsync вызван");
+    }
+    private void IncreaseCounter()
+    {
+        Counter++;
     }
 }

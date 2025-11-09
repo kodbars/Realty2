@@ -3,28 +3,12 @@
   "WorkspaceRootPath": "D:\\Program\\RepositoryProject\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{7ACC17E0-06E3-40B1-8130-74E3ED542368}|RealtyWeb_Server\\RealtyWeb_Server.csproj|d:\\program\\repositoryproject\\realtyweb_server\\components\\pages\\trainingblazor\\parent.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{7ACC17E0-06E3-40B1-8130-74E3ED542368}|RealtyWeb_Server\\RealtyWeb_Server.csproj|solutionrelative:realtyweb_server\\components\\pages\\trainingblazor\\parent.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+      "AbsoluteMoniker": "D:0:0:{7ACC17E0-06E3-40B1-8130-74E3ED542368}|RealtyWeb_Server\\RealtyWeb_Server.csproj|d:\\program\\repositoryproject\\realtyweb_server\\components\\pages\\trainingblazor\\eventslifecycle.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{7ACC17E0-06E3-40B1-8130-74E3ED542368}|RealtyWeb_Server\\RealtyWeb_Server.csproj|solutionrelative:realtyweb_server\\components\\pages\\trainingblazor\\eventslifecycle.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{7ACC17E0-06E3-40B1-8130-74E3ED542368}|RealtyWeb_Server\\RealtyWeb_Server.csproj|d:\\program\\repositoryproject\\realtyweb_server\\components\\pages\\trainingblazor\\trainingblazorsharedcomponents\\_child.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{7ACC17E0-06E3-40B1-8130-74E3ED542368}|RealtyWeb_Server\\RealtyWeb_Server.csproj|solutionrelative:realtyweb_server\\components\\pages\\trainingblazor\\trainingblazorsharedcomponents\\_child.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{7ACC17E0-06E3-40B1-8130-74E3ED542368}|RealtyWeb_Server\\RealtyWeb_Server.csproj|d:\\program\\repositoryproject\\realtyweb_server\\components\\pages\\trainingblazor\\workjs.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{7ACC17E0-06E3-40B1-8130-74E3ED542368}|RealtyWeb_Server\\RealtyWeb_Server.csproj|solutionrelative:realtyweb_server\\components\\pages\\trainingblazor\\workjs.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{7ACC17E0-06E3-40B1-8130-74E3ED542368}|RealtyWeb_Server\\RealtyWeb_Server.csproj|d:\\program\\repositoryproject\\realtyweb_server\\wwwroot\\js\\operation.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}",
-      "RelativeMoniker": "D:0:0:{7ACC17E0-06E3-40B1-8130-74E3ED542368}|RealtyWeb_Server\\RealtyWeb_Server.csproj|solutionrelative:realtyweb_server\\wwwroot\\js\\operation.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{7ACC17E0-06E3-40B1-8130-74E3ED542368}|RealtyWeb_Server\\RealtyWeb_Server.csproj|d:\\program\\repositoryproject\\realtyweb_server\\components\\app.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{7ACC17E0-06E3-40B1-8130-74E3ED542368}|RealtyWeb_Server\\RealtyWeb_Server.csproj|solutionrelative:realtyweb_server\\components\\app.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{7ACC17E0-06E3-40B1-8130-74E3ED542368}|RealtyWeb_Server\\RealtyWeb_Server.csproj|d:\\program\\repositoryproject\\realtyweb_server\\utils\\jshelper.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{7ACC17E0-06E3-40B1-8130-74E3ED542368}|RealtyWeb_Server\\RealtyWeb_Server.csproj|solutionrelative:realtyweb_server\\utils\\jshelper.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{7ACC17E0-06E3-40B1-8130-74E3ED542368}|RealtyWeb_Server\\RealtyWeb_Server.csproj|d:\\program\\repositoryproject\\realtyweb_server\\components\\pages\\trainingblazor\\trainingblazorsharedcomponents\\_lifecyclenested.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{7ACC17E0-06E3-40B1-8130-74E3ED542368}|RealtyWeb_Server\\RealtyWeb_Server.csproj|solutionrelative:realtyweb_server\\components\\pages\\trainingblazor\\trainingblazorsharedcomponents\\_lifecyclenested.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     }
   ],
   "DocumentGroupContainers": [
@@ -34,82 +18,32 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 0,
+          "SelectedChildIndex": 1,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "Parent.razor",
-              "DocumentMoniker": "D:\\Program\\RepositoryProject\\RealtyWeb_Server\\Components\\Pages\\TrainingBlazor\\Parent.razor",
-              "RelativeDocumentMoniker": "RealtyWeb_Server\\Components\\Pages\\TrainingBlazor\\Parent.razor",
-              "ToolTip": "D:\\Program\\RepositoryProject\\RealtyWeb_Server\\Components\\Pages\\TrainingBlazor\\Parent.razor",
-              "RelativeToolTip": "RealtyWeb_Server\\Components\\Pages\\TrainingBlazor\\Parent.razor",
-              "ViewState": "AgIAAB8AAAAAAAAAAAAAAC8AAAAGAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-11-02T08:33:25.957Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
               "DocumentIndex": 1,
-              "Title": "_Child.razor",
-              "DocumentMoniker": "D:\\Program\\RepositoryProject\\RealtyWeb_Server\\Components\\Pages\\TrainingBlazor\\TrainingBlazorSharedComponents\\_Child.razor",
-              "RelativeDocumentMoniker": "RealtyWeb_Server\\Components\\Pages\\TrainingBlazor\\TrainingBlazorSharedComponents\\_Child.razor",
-              "ToolTip": "D:\\Program\\RepositoryProject\\RealtyWeb_Server\\Components\\Pages\\TrainingBlazor\\TrainingBlazorSharedComponents\\_Child.razor",
-              "RelativeToolTip": "RealtyWeb_Server\\Components\\Pages\\TrainingBlazor\\TrainingBlazorSharedComponents\\_Child.razor",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAIAAAAmAAAAAAAAAA==",
+              "Title": "_LifecycleNested.razor",
+              "DocumentMoniker": "D:\\Program\\RepositoryProject\\RealtyWeb_Server\\Components\\Pages\\TrainingBlazor\\TrainingBlazorSharedComponents\\_LifecycleNested.razor",
+              "RelativeDocumentMoniker": "RealtyWeb_Server\\Components\\Pages\\TrainingBlazor\\TrainingBlazorSharedComponents\\_LifecycleNested.razor",
+              "ToolTip": "D:\\Program\\RepositoryProject\\RealtyWeb_Server\\Components\\Pages\\TrainingBlazor\\TrainingBlazorSharedComponents\\_LifecycleNested.razor",
+              "RelativeToolTip": "RealtyWeb_Server\\Components\\Pages\\TrainingBlazor\\TrainingBlazorSharedComponents\\_LifecycleNested.razor",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABcAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-11-02T08:30:04.343Z",
+              "WhenOpened": "2025-11-07T12:26:54.36Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "App.razor",
-              "DocumentMoniker": "D:\\Program\\RepositoryProject\\RealtyWeb_Server\\Components\\App.razor",
-              "RelativeDocumentMoniker": "RealtyWeb_Server\\Components\\App.razor",
-              "ToolTip": "D:\\Program\\RepositoryProject\\RealtyWeb_Server\\Components\\App.razor",
-              "RelativeToolTip": "RealtyWeb_Server\\Components\\App.razor",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABcAAAAEAAAAAAAAAA==",
+              "DocumentIndex": 0,
+              "Title": "EventsLifecycle.razor",
+              "DocumentMoniker": "D:\\Program\\RepositoryProject\\RealtyWeb_Server\\Components\\Pages\\TrainingBlazor\\EventsLifecycle.razor",
+              "RelativeDocumentMoniker": "RealtyWeb_Server\\Components\\Pages\\TrainingBlazor\\EventsLifecycle.razor",
+              "ToolTip": "D:\\Program\\RepositoryProject\\RealtyWeb_Server\\Components\\Pages\\TrainingBlazor\\EventsLifecycle.razor",
+              "RelativeToolTip": "RealtyWeb_Server\\Components\\Pages\\TrainingBlazor\\EventsLifecycle.razor",
+              "ViewState": "AgIAAB4AAAAAAAAAAAAAACwAAAAoAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-10-30T06:28:36.018Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "JsHelper.cs",
-              "DocumentMoniker": "D:\\Program\\RepositoryProject\\RealtyWeb_Server\\Utils\\JsHelper.cs",
-              "RelativeDocumentMoniker": "RealtyWeb_Server\\Utils\\JsHelper.cs",
-              "ToolTip": "D:\\Program\\RepositoryProject\\RealtyWeb_Server\\Utils\\JsHelper.cs",
-              "RelativeToolTip": "RealtyWeb_Server\\Utils\\JsHelper.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-30T05:48:08.519Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "WorkJs.razor",
-              "DocumentMoniker": "D:\\Program\\RepositoryProject\\RealtyWeb_Server\\Components\\Pages\\TrainingBlazor\\WorkJs.razor",
-              "RelativeDocumentMoniker": "RealtyWeb_Server\\Components\\Pages\\TrainingBlazor\\WorkJs.razor",
-              "ToolTip": "D:\\Program\\RepositoryProject\\RealtyWeb_Server\\Components\\Pages\\TrainingBlazor\\WorkJs.razor",
-              "RelativeToolTip": "RealtyWeb_Server\\Components\\Pages\\TrainingBlazor\\WorkJs.razor",
-              "ViewState": "AgIAAAwAAAAAAAAAAAAAABUAAABrAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-10-30T05:36:56.434Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "operation.js",
-              "DocumentMoniker": "D:\\Program\\RepositoryProject\\RealtyWeb_Server\\wwwroot\\js\\operation.js",
-              "RelativeDocumentMoniker": "RealtyWeb_Server\\wwwroot\\js\\operation.js",
-              "ToolTip": "D:\\Program\\RepositoryProject\\RealtyWeb_Server\\wwwroot\\js\\operation.js",
-              "RelativeToolTip": "RealtyWeb_Server\\wwwroot\\js\\operation.js",
-              "ViewState": "AgIAAAYAAAAAAAAAAAAAABwAAAAkAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001646|",
-              "WhenOpened": "2025-10-26T08:28:03.313Z",
+              "WhenOpened": "2025-11-07T12:18:04.393Z",
               "EditorCaption": ""
             }
           ]
