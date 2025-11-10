@@ -1,0 +1,19 @@
+﻿@page "/trainingBlazor/testCounter"
+
+<PageTitle>Counter</PageTitle>
+
+<h1>Counter</h1>
+
+<p role="status">Current count: @stateCounter.Count</p>
+
+<button class="btn btn-primary" @onclick="IncrementCount">Click me</button>
+
+@code {
+    [CascadingParameter]
+    public _StateCounter stateCounter { get; set; } = null!;
+
+    private void IncrementCount()
+    {
+        stateCounter.Count++;
+    }
+}

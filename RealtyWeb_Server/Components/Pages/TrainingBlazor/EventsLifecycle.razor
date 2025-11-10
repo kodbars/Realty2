@@ -2,6 +2,8 @@
 
 <h3>События жизненного цикла</h3>
 <button class="btn btn-primary" @onclick="IncreaseCounter">Обновить счетчик</button>
+<button class="btn btn-primary" @onclick="StartTimer">Запуск таймера</button>
+<h5>Подсчет: @Couting</h5>
 <br />
 @foreach (var item in LogEvents)
 {
@@ -15,9 +17,40 @@
 
 @code {
     List<string> LogEvents = new List<string>();
+    private int Couting { get; set; } = 0;
     public int Counter { get; set; }
+
+    protected override bool ShouldRender()
+    {
+        LogEvents.Add("ShouldRender вызван");
+        Console.WriteLine("ShouldRender вызван");
+        return true;
+    }
+
+    private void StartTimer()
+    {
+        var timer = new Timer(IntervalCallBack, null, 1000, 1000);
+    }
+
+    private void IntervalCallBack(object? state)
+    {
+        if (Couting < 7)
+        {
+            Couting++;
+            Console.WriteLine("Couting " + Couting);
+            InvokeAsync(StateHasChanged);
+        }
+    }
+
     protected override void OnAfterRender(bool firstRender)
     {
+        if (firstRender)
+        {
+            Counter = 11;
+        }else
+        {
+            Counter = 99;
+        }
         LogEvents.Add("OnAfterRender вызван");
         Console.WriteLine("OnAfterRender вызван");
     }
