@@ -1,4 +1,7 @@
-﻿<div class="top-row ps-3 navbar navbar-dark">
+﻿@inject StateContainerService stateService
+@implements IDisposable
+
+<div class="top-row ps-3 navbar navbar-dark">
     <div class="container-fluid">
         <a class="navbar-brand" href="">RealtyWeb_Server</a>
     </div>
@@ -10,13 +13,13 @@
     <nav class="flex-column">
         <div class="nav-item px-3">
             <NavLink class="nav-link" href="" Match="NavLinkMatch.All">
-                <span class="bi bi-house-door-fill-nav-menu" aria-hidden="true"></span> Home
+                <span class="bi bi-house-door-fill-nav-menu" aria-hidden="true"></span> Home (@stateService.Value)
             </NavLink>
         </div>
 
         <div class="nav-item px-3">
             <NavLink class="nav-link" href="trainingBlazor/testCounter">
-                <span class="bi bi-list-nested-nav-menu" aria-hidden="true"></span> Состояние(@stateCounter.Count)
+                <span class="bi bi-list-nested-nav-menu" aria-hidden="true"></span> Состояние (@stateCounter.Count)
             </NavLink>
         </div>
 
@@ -91,4 +94,14 @@
 @code {
     [CascadingParameter]
     public _StateCounter stateCounter { get; set; } = null!;
+
+    protected override void OnInitialized()
+    {
+        stateService.OnStateChange += StateHasChanged;
+    }
+
+    public void Dispose()
+    {
+        stateService.OnStateChange -= StateHasChanged;
+    }
 }

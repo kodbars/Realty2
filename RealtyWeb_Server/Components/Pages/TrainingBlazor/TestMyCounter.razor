@@ -1,18 +1,28 @@
 ﻿@page "/trainingBlazor/testMyCounter"
+@inject StateContainerService stateService
+@implements IDisposable
 
 <PageTitle>Counter</PageTitle>
 
 <h1>Counter</h1>
 
-<p role="status">Current count: @currentCount</p>
+<p role="status">Current count: @stateService.Value</p>
 
 <button class="btn btn-primary" @onclick="IncrementCount">Click me</button>
 
 @code {
-    private int currentCount = 0;
+    protected override void OnInitialized()
+    {
+        stateService.OnStateChange += StateHasChanged;
+    }
+
+    public void Dispose()
+    {
+        stateService.OnStateChange -= StateHasChanged;
+    }
 
     private void IncrementCount()
     {
-        currentCount++;
+        stateService.SetValue(++stateService.Value);
     }
 }
