@@ -1,4 +1,7 @@
-﻿<CascadingValue Value="this">
+﻿@using RealtyWeb_Server.Utils.IService
+@inject ILocalStorageService LocalStorageService
+
+<CascadingValue Value="this">
     @ChildContent
 </CascadingValue>
 
@@ -7,12 +10,28 @@
 @code {
     [Parameter]
     public RenderFragment? ChildContent { get; set; }
+    internal const string StateKeyName = "MyCounterValue";
     private int _count;
     public int Count { 
         get => _count;
         set
         {
             _count = value;
+            StateHasChanged();
+            SaveState();
+        }
+    }
+    private void SaveState()
+    {
+        var date = _count;
+        LocalStorageService.SetStringAsync(StateKeyName, date.ToString());
+    }
+    protected override async Task OnAfterRenderAsync(bool firstRender)
+    {
+        var state = await LocalStorageService.GetStringAsync(StateKeyName);   
+        if (state != null)
+        {
+            _count = Convert.ToInt32(state);
             StateHasChanged();
         }
     }

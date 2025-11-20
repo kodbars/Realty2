@@ -1,11 +1,13 @@
 using RealtyWeb_Server.Components;
 using RealtyWeb_Server.Utils;
+using RealtyWeb_Server.Utils.IService;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddRazorComponents()
     .AddInteractiveServerComponents();
+builder.Services.AddScoped<ILocalStorageService, LocalStorageService>();
 builder.Services.AddScoped<StateContainerService>();
 
 var app = builder.Build();
