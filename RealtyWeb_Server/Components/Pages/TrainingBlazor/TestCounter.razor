@@ -11,6 +11,7 @@
 @code {
     [CascadingParameter]
     public _StateCounter stateCounter { get; set; } = null!;
+    internal const string StateKeyName = "CounterValue";
 
     private void IncrementCount()
     {

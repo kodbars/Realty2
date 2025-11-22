@@ -1,6 +1,8 @@
 ﻿@page "/trainingBlazor/testMyCounter"
 @inject StateContainerService stateService
+@inject ILocalStorageService LocalStorageService
 @implements IDisposable
+
 
 <PageTitle>Counter</PageTitle>
 
@@ -11,6 +13,7 @@
 <button class="btn btn-primary" @onclick="IncrementCount">Click me</button>
 
 @code {
+    internal const string StateKeyName = "CounterValue";
     protected override void OnInitialized()
     {
         stateService.OnStateChange += StateHasChanged;
@@ -24,5 +27,15 @@
     private void IncrementCount()
     {
         stateService.SetValue(++stateService.Value);
+        LocalStorageService.SetStringAsync(StateKeyName, stateService.Value.ToString());
+    }
+    protected override async Task OnAfterRenderAsync(bool firstRender)
+    {
+        var state = await LocalStorageService.GetStringAsync(StateKeyName);
+        if (state != null)
+        {
+            stateService.Value = Convert.ToInt32(state);
+            StateHasChanged();
+        }
     }
 }

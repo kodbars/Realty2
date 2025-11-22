@@ -3,24 +3,48 @@
   "WorkspaceRootPath": "D:\\Rider_Project\\Realty02\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{7ACC17E0-06E3-40B1-8130-74E3ED542368}|RealtyWeb_Server\\RealtyWeb_Server.csproj|d:\\rider_project\\realty02\\realtyweb_server\\components\\pages\\trainingblazor\\trainingblazorsharedcomponents\\_statecounter.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{7ACC17E0-06E3-40B1-8130-74E3ED542368}|RealtyWeb_Server\\RealtyWeb_Server.csproj|solutionrelative:realtyweb_server\\components\\pages\\trainingblazor\\trainingblazorsharedcomponents\\_statecounter.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+      "AbsoluteMoniker": "D:0:0:{7ACC17E0-06E3-40B1-8130-74E3ED542368}|RealtyWeb_Server\\RealtyWeb_Server.csproj|d:\\rider_project\\realty02\\realtyweb_server\\components\\pages\\trainingblazor\\workjs.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{7ACC17E0-06E3-40B1-8130-74E3ED542368}|RealtyWeb_Server\\RealtyWeb_Server.csproj|solutionrelative:realtyweb_server\\components\\pages\\trainingblazor\\workjs.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7ACC17E0-06E3-40B1-8130-74E3ED542368}|RealtyWeb_Server\\RealtyWeb_Server.csproj|d:\\rider_project\\realty02\\realtyweb_server\\components\\_imports.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{7ACC17E0-06E3-40B1-8130-74E3ED542368}|RealtyWeb_Server\\RealtyWeb_Server.csproj|solutionrelative:realtyweb_server\\components\\_imports.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4E8E79D2-8C60-4720-AB69-CAC4279E4700}|InputboxComponents\\InputboxComponents.csproj|d:\\rider_project\\realty02\\inputboxcomponents\\beatifulbutton.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{4E8E79D2-8C60-4720-AB69-CAC4279E4700}|InputboxComponents\\InputboxComponents.csproj|solutionrelative:inputboxcomponents\\beatifulbutton.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4E8E79D2-8C60-4720-AB69-CAC4279E4700}|InputboxComponents\\InputboxComponents.csproj|d:\\rider_project\\realty02\\inputboxcomponents\\wwwroot\\examplejsinterop.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}",
+      "RelativeMoniker": "D:0:0:{4E8E79D2-8C60-4720-AB69-CAC4279E4700}|InputboxComponents\\InputboxComponents.csproj|solutionrelative:inputboxcomponents\\wwwroot\\examplejsinterop.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4E8E79D2-8C60-4720-AB69-CAC4279E4700}|InputboxComponents\\InputboxComponents.csproj|d:\\rider_project\\realty02\\inputboxcomponents\\wwwroot\\style.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}",
+      "RelativeMoniker": "D:0:0:{4E8E79D2-8C60-4720-AB69-CAC4279E4700}|InputboxComponents\\InputboxComponents.csproj|solutionrelative:inputboxcomponents\\wwwroot\\style.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{7ACC17E0-06E3-40B1-8130-74E3ED542368}|RealtyWeb_Server\\RealtyWeb_Server.csproj|d:\\rider_project\\realty02\\realtyweb_server\\components\\layout\\navmenu.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
       "RelativeMoniker": "D:0:0:{7ACC17E0-06E3-40B1-8130-74E3ED542368}|RealtyWeb_Server\\RealtyWeb_Server.csproj|solutionrelative:realtyweb_server\\components\\layout\\navmenu.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
+      "AbsoluteMoniker": "D:0:0:{7ACC17E0-06E3-40B1-8130-74E3ED542368}|RealtyWeb_Server\\RealtyWeb_Server.csproj|d:\\rider_project\\realty02\\realtyweb_server\\components\\pages\\trainingblazor\\testmycounter.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{7ACC17E0-06E3-40B1-8130-74E3ED542368}|RealtyWeb_Server\\RealtyWeb_Server.csproj|solutionrelative:realtyweb_server\\components\\pages\\trainingblazor\\testmycounter.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{7ACC17E0-06E3-40B1-8130-74E3ED542368}|RealtyWeb_Server\\RealtyWeb_Server.csproj|d:\\rider_project\\realty02\\realtyweb_server\\components\\pages\\trainingblazor\\testcounter.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
       "RelativeMoniker": "D:0:0:{7ACC17E0-06E3-40B1-8130-74E3ED542368}|RealtyWeb_Server\\RealtyWeb_Server.csproj|solutionrelative:realtyweb_server\\components\\pages\\trainingblazor\\testcounter.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{7ACC17E0-06E3-40B1-8130-74E3ED542368}|RealtyWeb_Server\\RealtyWeb_Server.csproj|d:\\rider_project\\realty02\\realtyweb_server\\components\\routes.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{7ACC17E0-06E3-40B1-8130-74E3ED542368}|RealtyWeb_Server\\RealtyWeb_Server.csproj|solutionrelative:realtyweb_server\\components\\routes.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+      "AbsoluteMoniker": "D:0:0:{7ACC17E0-06E3-40B1-8130-74E3ED542368}|RealtyWeb_Server\\RealtyWeb_Server.csproj|d:\\rider_project\\realty02\\realtyweb_server\\components\\pages\\trainingblazor\\trainingblazorsharedcomponents\\_statecounter.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{7ACC17E0-06E3-40B1-8130-74E3ED542368}|RealtyWeb_Server\\RealtyWeb_Server.csproj|solutionrelative:realtyweb_server\\components\\pages\\trainingblazor\\trainingblazorsharedcomponents\\_statecounter.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{7ACC17E0-06E3-40B1-8130-74E3ED542368}|RealtyWeb_Server\\RealtyWeb_Server.csproj|d:\\rider_project\\realty02\\realtyweb_server\\components\\pages\\trainingblazor\\eventslifecycle.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
       "RelativeMoniker": "D:0:0:{7ACC17E0-06E3-40B1-8130-74E3ED542368}|RealtyWeb_Server\\RealtyWeb_Server.csproj|solutionrelative:realtyweb_server\\components\\pages\\trainingblazor\\eventslifecycle.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7ACC17E0-06E3-40B1-8130-74E3ED542368}|RealtyWeb_Server\\RealtyWeb_Server.csproj|d:\\rider_project\\realty02\\realtyweb_server\\components\\routes.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{7ACC17E0-06E3-40B1-8130-74E3ED542368}|RealtyWeb_Server\\RealtyWeb_Server.csproj|solutionrelative:realtyweb_server\\components\\routes.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     }
   ],
   "DocumentGroupContainers": [
@@ -30,8 +54,34 @@
       "DocumentGroups": [
         {
           "DockedWidth": 306,
-          "SelectedChildIndex": 6,
+          "SelectedChildIndex": 0,
           "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "WorkJs.razor",
+              "DocumentMoniker": "D:\\Rider_Project\\Realty02\\RealtyWeb_Server\\Components\\Pages\\TrainingBlazor\\WorkJs.razor",
+              "RelativeDocumentMoniker": "RealtyWeb_Server\\Components\\Pages\\TrainingBlazor\\WorkJs.razor",
+              "ToolTip": "D:\\Rider_Project\\Realty02\\RealtyWeb_Server\\Components\\Pages\\TrainingBlazor\\WorkJs.razor",
+              "RelativeToolTip": "RealtyWeb_Server\\Components\\Pages\\TrainingBlazor\\WorkJs.razor",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAC0AAAA5AAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-11-22T13:08:36.657Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "exampleJsInterop.js",
+              "DocumentMoniker": "D:\\Rider_Project\\Realty02\\InputboxComponents\\wwwroot\\exampleJsInterop.js",
+              "RelativeDocumentMoniker": "InputboxComponents\\wwwroot\\exampleJsInterop.js",
+              "ToolTip": "D:\\Rider_Project\\Realty02\\InputboxComponents\\wwwroot\\exampleJsInterop.js",
+              "RelativeToolTip": "InputboxComponents\\wwwroot\\exampleJsInterop.js",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAqwAIAAAABAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001646|",
+              "WhenOpened": "2025-11-22T12:53:54.431Z",
+              "EditorCaption": ""
+            },
             {
               "$type": "Bookmark",
               "Name": "ST:0:0:{3ae79031-e1bc-11d0-8f78-00a0c9110057}"
@@ -54,7 +104,58 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 4,
+              "Title": "style.css",
+              "DocumentMoniker": "D:\\Rider_Project\\Realty02\\InputboxComponents\\wwwroot\\style.css",
+              "RelativeDocumentMoniker": "InputboxComponents\\wwwroot\\style.css",
+              "ToolTip": "D:\\Rider_Project\\Realty02\\InputboxComponents\\wwwroot\\style.css",
+              "RelativeToolTip": "InputboxComponents\\wwwroot\\style.css",
+              "ViewState": "AQIAAAsAAAAAAAAAAAAiwCMAAAAfAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003000|",
+              "WhenOpened": "2025-11-22T07:22:17.469Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "BeatifulButton.razor",
+              "DocumentMoniker": "D:\\Rider_Project\\Realty02\\InputboxComponents\\BeatifulButton.razor",
+              "RelativeDocumentMoniker": "InputboxComponents\\BeatifulButton.razor",
+              "ToolTip": "D:\\Rider_Project\\Realty02\\InputboxComponents\\BeatifulButton.razor",
+              "RelativeToolTip": "InputboxComponents\\BeatifulButton.razor",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAA4AAAABAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-11-22T07:11:15.788Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "TestMyCounter.razor",
+              "DocumentMoniker": "D:\\Rider_Project\\Realty02\\RealtyWeb_Server\\Components\\Pages\\TrainingBlazor\\TestMyCounter.razor",
+              "RelativeDocumentMoniker": "RealtyWeb_Server\\Components\\Pages\\TrainingBlazor\\TestMyCounter.razor",
+              "ToolTip": "D:\\Rider_Project\\Realty02\\RealtyWeb_Server\\Components\\Pages\\TrainingBlazor\\TestMyCounter.razor",
+              "RelativeToolTip": "RealtyWeb_Server\\Components\\Pages\\TrainingBlazor\\TestMyCounter.razor",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAACgAAAABAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-11-22T06:34:31.96Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "_Imports.razor",
+              "DocumentMoniker": "D:\\Rider_Project\\Realty02\\RealtyWeb_Server\\Components\\_Imports.razor",
+              "RelativeDocumentMoniker": "RealtyWeb_Server\\Components\\_Imports.razor",
+              "ToolTip": "D:\\Rider_Project\\Realty02\\RealtyWeb_Server\\Components\\_Imports.razor",
+              "RelativeToolTip": "RealtyWeb_Server\\Components\\_Imports.razor",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAA8AAAAZAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-11-22T06:26:29.387Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
               "Title": "Routes.razor",
               "DocumentMoniker": "D:\\Rider_Project\\Realty02\\RealtyWeb_Server\\Components\\Routes.razor",
               "RelativeDocumentMoniker": "RealtyWeb_Server\\Components\\Routes.razor",
@@ -62,60 +163,55 @@
               "RelativeToolTip": "RealtyWeb_Server\\Components\\Routes.razor",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-11-10T08:28:48.045Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-11-10T08:28:48.045Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 8,
               "Title": "_StateCounter.razor",
               "DocumentMoniker": "D:\\Rider_Project\\Realty02\\RealtyWeb_Server\\Components\\Pages\\TrainingBlazor\\TrainingBlazorSharedComponents\\_StateCounter.razor",
               "RelativeDocumentMoniker": "RealtyWeb_Server\\Components\\Pages\\TrainingBlazor\\TrainingBlazorSharedComponents\\_StateCounter.razor",
               "ToolTip": "D:\\Rider_Project\\Realty02\\RealtyWeb_Server\\Components\\Pages\\TrainingBlazor\\TrainingBlazorSharedComponents\\_StateCounter.razor",
               "RelativeToolTip": "RealtyWeb_Server\\Components\\Pages\\TrainingBlazor\\TrainingBlazorSharedComponents\\_StateCounter.razor",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAABMAAAAAAAAA",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABsAAAAEAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-11-10T08:17:48.053Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-11-10T08:17:48.053Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 7,
               "Title": "TestCounter.razor",
               "DocumentMoniker": "D:\\Rider_Project\\Realty02\\RealtyWeb_Server\\Components\\Pages\\TrainingBlazor\\TestCounter.razor",
               "RelativeDocumentMoniker": "RealtyWeb_Server\\Components\\Pages\\TrainingBlazor\\TestCounter.razor",
               "ToolTip": "D:\\Rider_Project\\Realty02\\RealtyWeb_Server\\Components\\Pages\\TrainingBlazor\\TestCounter.razor",
               "RelativeToolTip": "RealtyWeb_Server\\Components\\Pages\\TrainingBlazor\\TestCounter.razor",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAABIAAAABAAAA",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAjAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-11-10T08:08:59.058Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-11-10T08:08:59.058Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 5,
               "Title": "NavMenu.razor",
               "DocumentMoniker": "D:\\Rider_Project\\Realty02\\RealtyWeb_Server\\Components\\Layout\\NavMenu.razor",
               "RelativeDocumentMoniker": "RealtyWeb_Server\\Components\\Layout\\NavMenu.razor",
               "ToolTip": "D:\\Rider_Project\\Realty02\\RealtyWeb_Server\\Components\\Layout\\NavMenu.razor",
               "RelativeToolTip": "RealtyWeb_Server\\Components\\Layout\\NavMenu.razor",
-              "ViewState": "AQIAAAEAAAAAAAAAAAAqwFgAAAAAAAAA",
+              "ViewState": "AQIAAE8AAAAAAAAAAAAwwF4AAAAHAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-11-10T08:07:11.872Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-11-10T08:07:11.872Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 9,
               "Title": "EventsLifecycle.razor",
               "DocumentMoniker": "D:\\Rider_Project\\Realty02\\RealtyWeb_Server\\Components\\Pages\\TrainingBlazor\\EventsLifecycle.razor",
               "RelativeDocumentMoniker": "RealtyWeb_Server\\Components\\Pages\\TrainingBlazor\\EventsLifecycle.razor",
               "ToolTip": "D:\\Rider_Project\\Realty02\\RealtyWeb_Server\\Components\\Pages\\TrainingBlazor\\EventsLifecycle.razor",
               "RelativeToolTip": "RealtyWeb_Server\\Components\\Pages\\TrainingBlazor\\EventsLifecycle.razor",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAXAAAA",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAADkAAAAiAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-11-09T10:15:39.892Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-11-09T10:15:39.892Z"
             }
           ]
         }

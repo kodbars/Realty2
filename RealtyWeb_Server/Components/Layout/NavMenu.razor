@@ -1,5 +1,6 @@
 ﻿@inject StateContainerService stateService
 @implements IDisposable
+@inject ILocalStorageService LocalStorageService
 
 <div class="top-row ps-3 navbar navbar-dark">
     <div class="container-fluid">
@@ -94,8 +95,9 @@
 @code {
     [CascadingParameter]
     public _StateCounter stateCounter { get; set; } = null!;
+    internal const string StateKeyName = "CounterValue";
 
-    protected override void OnInitialized()
+    protected override async Task OnInitializedAsync()
     {
         stateService.OnStateChange += StateHasChanged;
     }
@@ -103,5 +105,15 @@
     public void Dispose()
     {
         stateService.OnStateChange -= StateHasChanged;
+    }
+
+    protected override async Task OnAfterRenderAsync(bool firstRender)
+    {
+        var state = await LocalStorageService.GetStringAsync(StateKeyName);
+        if (state != null)
+        {
+            stateService.Value = Convert.ToInt32(state);
+            StateHasChanged();
+        }
     }
 }
