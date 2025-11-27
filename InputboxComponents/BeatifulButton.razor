@@ -1,15 +1,17 @@
 ﻿<div class="inputbox-component">
     <div class="inputbox-buttonkeeper">
-        <button class="button-inputbox" role="button" @onclick="OnclickCallback">@Title</button>
+        <button class="button-inputbox" role="button" @onclick="OnClickCallback">@Title</button>
     </div>
 </div>
-<div>Ваш ответ: @ResultAnsver</div>
-
-@code {
+<div>Ваш ответ: @ResultAnswer</div>
+@code
+{
     [Parameter]
     public string? Title { get; set; }
+
     [Parameter]
-    public string? ResultAnsver { get; set; }
+    public string? ResultAnswer { get; set; }
+
     [Parameter]
-    public EventCallback<MouseEventArgs> OnclickCallback { get; set; }
+    public EventCallback<MouseEventArgs> OnClickCallback { get; set; }
 }

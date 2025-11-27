@@ -1,5 +1,6 @@
 ﻿@page "/trainingBlazor/workJs"
 @inject IJSRuntime _JS
+@implements IDisposable
 
 <h3>Работа с JavaScript</h3>
 <div>
@@ -31,7 +32,7 @@
     </div>
 </div>
 <div>
-    <BeatifulButton Title="Нажми меня!" OnclickCallback="Onclick" ResultAnsver="@resultAnswer"></BeatifulButton>
+    <BeatifulButton Title="Нажми меня!" OnclickCallback="Onclick" ResultAnswer="@resultAnswer"></BeatifulButton>
 </div>
 
 
@@ -39,11 +40,23 @@
     private string ConfirmText = "Ты уверен, что хочешь нажать?";
     private bool IsConfirm { get; set; }
     string resultAnswer = string.Empty;
+    EditContext? editContext;
 
     async void Onclick(MouseEventArgs arg)
     {
         var task = new ExampleJsInterop(_JS);
         resultAnswer = await task.Prompt("Дайте ответ!");
+        editContext?.NotifyFieldChanged(editContext.Field(nameof(resultAnswer)));
+    }
+    protected override void OnInitialized()
+    {
+        base.OnInitialized();
+        editContext = new EditContext(this);
+        editContext.OnFieldChanged += (snder, args) => StateHasChanged();
+    }
+    public void Dispose()
+    {
+        editContext.OnFieldChanged -= (snder, args) => StateHasChanged();
     }
     private async Task SweetAlertSuccess()
     {
@@ -61,6 +74,7 @@
     {
         await _JS.NotyfSuccess("Операция выполнена успешно!");
     }
+
     private async Task ShowNotyfFallure()
     {
         await _JS.NotyfError("Операция не удалась!");

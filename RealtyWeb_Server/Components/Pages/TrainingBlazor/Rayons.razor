@@ -1,0 +1,59 @@
+﻿@page "/rayons"
+
+<h3>Районы</h3>
+
+@if (_rayons == null)
+{
+    <p>Загрузка районов, подождите...</p>
+}
+else
+{
+    <table class="table">
+        <thead>
+            <tr>
+                <td>Id</td>
+                <td>Наименование</td>
+                <td>Площадь</td>
+            </tr>
+        </thead>
+        <tbody>
+            <Virtualize Items="_rayons" Context="row">
+                <tr>
+                    <td>@row.Id</td>
+                    <td>@row.Nm</td>
+                    <td>@row.Square</td>
+                </tr>
+            </Virtualize>
+        </tbody>
+    </table>    
+}
+
+@code {
+    private List<Rayon>? _rayons;
+    public class Rayon
+    {
+        public Guid Id { get; set; }
+        public string? Nm { get; set; }
+        public int Square { get; set; }
+    }
+    protected override async Task OnInitializedAsync()
+    {
+        _rayons = await MakeTenThousandRayons();
+    }
+    private async Task<List<Rayon>> MakeTenThousandRayons()
+    {
+        List<Rayon> myRayonList = new List<Rayon>();
+        for (int i = 0; i < 10000; i++)
+        {
+            var rayon = new Rayon()
+            {
+                Id = Guid.NewGuid(),
+                Nm = $"Rayon {i}",
+                Square = i * 100
+            };
+            myRayonList.Add(rayon);
+        }
+        await Task.Delay(100);
+        return await Task.FromResult(myRayonList);
+    }
+}
