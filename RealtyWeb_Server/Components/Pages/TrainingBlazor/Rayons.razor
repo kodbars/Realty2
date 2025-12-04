@@ -2,12 +2,6 @@
 
 <h3>Районы</h3>
 
-@if (_rayons == null)
-{
-    <p>Загрузка районов, подождите...</p>
-}
-else
-{
     <table class="table">
         <thead>
             <tr>
@@ -17,19 +11,28 @@ else
             </tr>
         </thead>
         <tbody>
-            <Virtualize Items="_rayons" Context="row">
+            <Virtualize Context="row" ItemsProvider="@LoadRayons">
+                <ItemContent>
                 <tr>
                     <td>@row.Id</td>
                     <td>@row.Nm</td>
                     <td>@row.Square</td>
                 </tr>
+                </ItemContent>
+                <Placeholder>
+                    <p>Загрузка районов, подождите...</p>
+                </Placeholder>
             </Virtualize>
         </tbody>
     </table>    
-}
 
 @code {
     private List<Rayon>? _rayons;
+    private async ValueTask<ItemsProviderResult<Rayon>> LoadRayons(ItemsProviderRequest reqest)
+    {
+        var rayons = await MakeTenThousandRayons();
+        return new ItemsProviderResult<Rayon>(rayons.Skip(reqest.StartIndex).Take(reqest.Count), rayons.Count());
+    }
     public class Rayon
     {
         public Guid Id { get; set; }
