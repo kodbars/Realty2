@@ -9,5 +9,10 @@ namespace Realty_Biz.Repository.IRepository
 {
     public interface IRegionRepository
     {
+        public Region Create(Region obj);
+        public Region Update(Region obj);
+        public int Delete(int id);
+        public Region Get(int id);
+        public IEnumerable<Region> GetAll();
     }
 }
