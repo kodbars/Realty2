@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace Realty_Biz.Repository
 {
-    internal class MockRegionRepository : IRegionRepository
+    public class MockRegionRepository : IRegionRepository
     {
         private List<Region> _data;
 

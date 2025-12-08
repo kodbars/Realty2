@@ -13,6 +13,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\InputboxComponents\InputboxComponents.csproj" />
+    <ProjectReference Include="..\Realty_Biz\Realty_Biz.csproj" />
     <ProjectReference Include="..\Realty_Models\Realty_Models.csproj" />
   </ItemGroup>
 

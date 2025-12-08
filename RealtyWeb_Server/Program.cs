@@ -1,6 +1,8 @@
 using RealtyWeb_Server.Components;
 using RealtyWeb_Server.Utils;
 using RealtyWeb_Server.Utils.IService;
+using Realty_Biz.Repository;
+using Realty_Biz.Repository.IRepository;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -9,6 +11,7 @@ builder.Services.AddRazorComponents()
     .AddInteractiveServerComponents();
 builder.Services.AddScoped<ILocalStorageService, LocalStorageService>();
 builder.Services.AddScoped<StateContainerService>();
+builder.Services.AddScoped<IRegionRepository, MockRegionRepository>();
 
 var app = builder.Build();
 
