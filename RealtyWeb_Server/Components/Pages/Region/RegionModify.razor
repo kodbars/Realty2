@@ -2,8 +2,25 @@
 
 <div class="row my-2">
     <h3 class="card-title text-primary mb-3">@Caption регион</h3>
+    <div class="col-12">
+        <EditForm Model="region">
+            <div class="form-group">
+                <label>Наименование</label>
+                <InputText @bind-Value="region.Nm" class="form-control"></InputText>
+            </div>
+            <div class="form-group">
+                <label>Код ГИБДД</label>
+                <InputText @bind-Value="region.GIBDD" class="form-control" maxlength="2"></InputText>
+            </div>
+            <div class="form-group py-2">
+                <button class="btn btn-primary">@Caption</button>
+                <NavLink href="region" class="btn btn-secondary">Назад к списку</NavLink>
+            </div>
+        </EditForm>
+    </div>
 </div>
 
 @code {
     private string Caption { get; set; } = "Добавить";
+    private Region region { get; set; } = new Region(); 
 }
