@@ -3,7 +3,9 @@
 <div class="row my-2">
     <h3 class="card-title text-primary mb-3">@Caption регион</h3>
     <div class="col-12">
-        <EditForm Model="region">
+        <EditForm Model="region" OnValidSubmit="ModifyRegion">
+            <DataAnnotationsValidator />
+            <ValidationSummary />
             <div class="form-group">
                 <label>Наименование</label>
                 <InputText @bind-Value="region.Nm" class="form-control"></InputText>
@@ -22,5 +24,9 @@
 
 @code {
     private string Caption { get; set; } = "Добавить";
-    private Region region { get; set; } = new Region(); 
+    private Region region { get; set; } = new Region();
+    private void ModifyRegion()
+    {
+        region.Nm = "Кнопка нажата";    
+    }
 }
