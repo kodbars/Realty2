@@ -5,14 +5,15 @@
     <div class="col-12">
         <EditForm Model="region" OnValidSubmit="ModifyRegion">
             <DataAnnotationsValidator />
-            <ValidationSummary />
             <div class="form-group">
                 <label>Наименование</label>
+                <ValidationMessage For="()=>region.Nm"></ValidationMessage>
                 <InputText @bind-Value="region.Nm" class="form-control"></InputText>
             </div>
             <div class="form-group">
                 <label>Код ГИБДД</label>
-                <InputText @bind-Value="region.GIBDD" class="form-control" maxlength="2"></InputText>
+                <ValidationMessage For="() => region.GIBDD"></ValidationMessage>
+                <InputText @bind-Value="region.GIBDD" @oninput="HandleInputGIBDD" class="form-control" maxlength="2"></InputText>
             </div>
             <div class="form-group py-2">
                 <button class="btn btn-primary">@Caption</button>
@@ -28,5 +29,9 @@
     private void ModifyRegion()
     {
         region.Nm = "Кнопка нажата";    
+    }
+    private void HandleInputGIBDD(ChangeEventArgs e)
+    {
+        region.GIBDD = e.Value as string;
     }
 }

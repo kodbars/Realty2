@@ -88,7 +88,7 @@
               "RelativeDocumentMoniker": "RealtyWeb_Server\\Components\\Pages\\Region\\RegionModify.razor",
               "ToolTip": "D:\\Program\\RepositoryProject\\RealtyWeb_Server\\Components\\Pages\\Region\\RegionModify.razor",
               "RelativeToolTip": "RealtyWeb_Server\\Components\\Pages\\Region\\RegionModify.razor",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABkAAAABAAAAAAAAAA==",
+              "ViewState": "AgIAAAUAAAAAAAAAAAAAACQAAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
               "WhenOpened": "2025-12-08T18:01:27.665Z",
               "EditorCaption": ""
@@ -163,8 +163,7 @@
               "RelativeToolTip": "RealtyWeb_Server\\Components\\App.razor",
               "ViewState": "AgIAAAAAAAAAAAAAAAAYwA4AAABKAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-11-18T15:03:52.549Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-11-18T15:03:52.549Z"
             },
             {
               "$type": "Document",
