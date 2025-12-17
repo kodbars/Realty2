@@ -1,4 +1,5 @@
 ﻿@page "/region"
+@inject IRegionRepository _regionRepository
 
 <div class="row mt-4">
     <div class="col-6">
@@ -7,8 +8,60 @@
     <div class="col-4 offset-2">
         <a href="region/create" class="btn btn-primary form-control">Новый регион</a>
     </div>
+    <div class="col-12 p-3">
+        @if (Regions.Any())
+        {
+            <div class="table-responsive">
+                <table class="table table-bordered">
+                    <thead>
+                        <tr>
+                            <th>Наименование</th>
+                            <th>Код</th>
+                            <th>Действия</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var item in Regions)
+                        {
+                            <tr>
+                                <td>@item.Nm</td>
+                                <td>@item.GIBDD</td>
+                                <td>
+                                    <NavLink href="@($"region/edit/{item.Id}")" class="btn btn-info">Изменить</NavLink>
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        } else
+        {
+            @if (IsLoading)
+            {
+                <div class="text-center">
+                    <img src="images/loading.gif" />
+                </div>   
+            }else
+            {
+                <p>Записей не найдено.</p>
+            }    
+        }
+    </div>
 </div>
 
 @code {
-
+    private IEnumerable<Region> Regions { get; set; } = new List<Region>();
+    public bool IsLoading { get; set; } = true;
+    private void LoadRegions()
+    {
+        Regions = _regionRepository.GetAll();
+        IsLoading = false;
+    }
+    protected override async Task OnInitializedAsync()
+    {
+        await Task.Run(() =>
+        {
+            LoadRegions();    
+        });
+    }
 }

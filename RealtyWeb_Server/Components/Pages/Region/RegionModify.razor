@@ -1,34 +1,74 @@
 ﻿@page "/region/create"
+@page "/region/edit/{Id:int}"
+@inject IRegionRepository _regionRepository
+@inject NavigationManager _navigationManager
 
 <div class="row my-2">
     <h3 class="card-title text-primary mb-3">@Caption регион</h3>
     <div class="col-12">
-        <EditForm Model="region" OnValidSubmit="ModifyRegion">
-            <DataAnnotationsValidator />
-            <div class="form-group">
-                <label>Наименование</label>
-                <ValidationMessage For="()=>region.Nm"></ValidationMessage>
-                <InputText @bind-Value="region.Nm" class="form-control"></InputText>
+        @if (IsLoading)
+        {
+            <div class="text-center">
+                <img src="images/loading.gif" />
             </div>
-            <div class="form-group">
-                <label>Код ГИБДД</label>
-                <ValidationMessage For="() => region.GIBDD"></ValidationMessage>
-                <InputText @bind-Value="region.GIBDD" @oninput="HandleInputGIBDD" class="form-control" maxlength="2"></InputText>
-            </div>
-            <div class="form-group py-2">
-                <button class="btn btn-primary">@Caption</button>
-                <NavLink href="region" class="btn btn-secondary">Назад к списку</NavLink>
-            </div>
-        </EditForm>
+        }
+        else
+        {
+            <EditForm Model="region" OnValidSubmit="ModifyRegion" FormName="regionEdit">
+                <DataAnnotationsValidator />
+                <div class="form-group">
+                    <label>Наименование</label>
+                    <ValidationMessage For="() => region.Nm"></ValidationMessage>
+                    <InputText @bind-Value="region.Nm" class="form-control"></InputText>
+                </div>
+                <div class="form-group">
+                    <label>Код ГИБДД</label>
+                    <ValidationMessage For="() => region.GIBDD"></ValidationMessage>
+                    <InputText @bind-Value="region.GIBDD" @oninput="HandleInputGIBDD" class="form-control" maxlength="2"></InputText>
+                </div>
+                <div class="form-group py-2">
+                    <button class="btn btn-primary">@Caption</button>
+                    <NavLink href="region" class="btn btn-secondary">Назад к списку</NavLink>
+                </div>
+            </EditForm>
+        }
     </div>
 </div>
 
 @code {
     private string Caption { get; set; } = "Добавить";
     private Region region { get; set; } = new Region();
+    [Parameter]
+    public int Id { get; set; }
+    public bool IsLoading { get; set; } = true;
+    private void LoadRegion()
+    {
+        region = _regionRepository.Get(Id);
+        IsLoading = false;
+    }
+    protected override async Task OnParametersSetAsync()
+    {
+        if (Id == 0)
+        {
+            //Добавление нового региона
+            IsLoading = false;
+        } else
+        {
+            //Изменение существующего региона
+            Caption = "Обновить";
+            await Task.Run(LoadRegion);
+        }
+    }
     private void ModifyRegion()
     {
-        region.Nm = "Кнопка нажата";    
+        if (region.Id == 0)
+        {
+            _regionRepository.Create(region);
+        } else
+        {
+            _regionRepository.Update(region);
+        }
+        _navigationManager.NavigateTo("region");
     }
     private void HandleInputGIBDD(ChangeEventArgs e)
     {
