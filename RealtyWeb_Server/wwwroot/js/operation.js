@@ -32,3 +32,11 @@ window.ShowSweetAlert = (type, message) => {
         )
     }
 }
+
+function ShowRemoveConfirmftionModal() {
+    $('#removeConfirmationModal').modal('show');
+}
+
+function hideRemoveConfirmftionModal() {
+    $('#removeConfirmationModal').modal('hide');
+}
