@@ -16,24 +16,59 @@
         }
         else
         {
-            @*
-            <EditForm Model="region" OnValidSubmit="ModifyHouse" FormName="regionEdit">
+            <EditForm Model="house" OnValidSubmit="ModifyHouse">
                 <DataAnnotationsValidator />
                 <div class="form-group">
-                    <label>Наименование</label>
-                    <ValidationMessage For="() => region.Nm"></ValidationMessage>
-                    <InputText @bind-Value="region.Nm" class="form-control"></InputText>
+                    <label>Лот</label>
+                    <ValidationMessage For="() => house.Lot"></ValidationMessage>
+                    <InputText @bind-Value="house.Lot" @oninput="HandleInputLot" class="form-control" maxlength="3"></InputText>
                 </div>
                 <div class="form-group">
-                    <label>Код ГИБДД</label>
-                    <ValidationMessage For="() => region.GIBDD"></ValidationMessage>
-                    <InputText @bind-Value="region.GIBDD" @oninput="HandleInputGIBDD" class="form-control" maxlength="2"></InputText>
+                    <label>Адрес</label>
+                    <ValidationMessage For="() => house.Address"></ValidationMessage>
+                    <InputText @bind-Value="house.Address" class="form-control"></InputText>
+                </div>
+                <div class="row pt-3">
+                    <div class="form-group col-md-4">
+                        <label>Площадь</label>
+                        <ValidationMessage For="() => house.Squeare"></ValidationMessage>
+                        <InputNumber @bind-Value="house.Squeare" class="form-control"></InputNumber>
+                    </div>
+                    <div class="form-group col-md-4">
+                        <label>Число комнат</label>
+                        <ValidationMessage For="() => house.NumOfRoms"></ValidationMessage>
+                        <InputNumber @bind-Value="house.NumOfRoms" class="form-control"></InputNumber>
+                    </div>
+                    <div class="form-group col-md-4">
+                        <label>Цена</label>
+                        <ValidationMessage For="() => house.Price"></ValidationMessage>
+                        <InputNumber @bind-Value="house.Price" class="form-control"></InputNumber>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label>Примечание</label>
+                    <ValidationMessage For="() => house.Notes"></ValidationMessage>
+                    <InputTextArea @bind-Value="house.Notes" class="form-control" ></InputTextArea>
+                </div>
+                <div class="row pt-3">
+                    <div class="form-group col-6">
+                        <div class="form-check">
+                            <InputCheckbox @bind-Value="house.IsExclusive" class="form-check-input"></InputCheckbox>
+                            <label class="form-check-label">Эксклюзив</label>
+                        </div>
+                    </div>
+                    <div class="form-group col-6">
+                        <div class="form-check">
+                            <InputCheckbox @bind-Value="house.IsMortagege" class="form-check-input"></InputCheckbox>
+                            <label class="form-check-label">Ипотека</label>
+                        </div>
+                    </div>
                 </div>
                 <div class="form-group py-2">
                     <button class="btn btn-primary">@Caption</button>
                     <NavLink href="region" class="btn btn-secondary">Назад к списку</NavLink>
                 </div>
-            </EditForm>*@
+        </EditForm>
         }
     </div>
 </div>
@@ -45,11 +80,6 @@
     [Parameter]
     public int Id { get; set; }
     public bool IsLoading { get; set; } = true;
-    private async Task LoadRegion()
-    {
-        //region = await _regionRepository.Get(Id);
-        IsLoading = false;
-    }
     private async Task LoadHouse()
     {
         Regions = await _regionRepository.GetAll();
@@ -89,8 +119,8 @@
     {
         await _JS.InvokeVoidAsync("ShowSweetAlert", "error", msg);
     }
-    private void HandleInputGIBDD(ChangeEventArgs e)
+    private void HandleInputLot(ChangeEventArgs e)
     {
-        //region.GIBDD = e.Value as string;
+        throw new NotImplementedException();
     }
 }

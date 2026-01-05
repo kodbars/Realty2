@@ -3,12 +3,20 @@
   "WorkspaceRootPath": "D:\\Rider_Project\\Realty02\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{7ACC17E0-06E3-40B1-8130-74E3ED542368}|RealtyWeb_Server\\RealtyWeb_Server.csproj|d:\\rider_project\\realty02\\realtyweb_server\\components\\pages\\region\\regionmodify.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{7ACC17E0-06E3-40B1-8130-74E3ED542368}|RealtyWeb_Server\\RealtyWeb_Server.csproj|solutionrelative:realtyweb_server\\components\\pages\\region\\regionmodify.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+      "AbsoluteMoniker": "D:0:0:{9641CCA3-5ED0-4115-8F5E-24117D47895F}|Realty_Models\\Realty_Models.csproj|d:\\rider_project\\realty02\\realty_models\\house.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{9641CCA3-5ED0-4115-8F5E-24117D47895F}|Realty_Models\\Realty_Models.csproj|solutionrelative:realty_models\\house.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{9641CCA3-5ED0-4115-8F5E-24117D47895F}|Realty_Models\\Realty_Models.csproj|d:\\rider_project\\realty02\\realty_models\\region.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{9641CCA3-5ED0-4115-8F5E-24117D47895F}|Realty_Models\\Realty_Models.csproj|solutionrelative:realty_models\\region.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7ACC17E0-06E3-40B1-8130-74E3ED542368}|RealtyWeb_Server\\RealtyWeb_Server.csproj|d:\\rider_project\\realty02\\realtyweb_server\\components\\pages\\house\\housemodify.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{7ACC17E0-06E3-40B1-8130-74E3ED542368}|RealtyWeb_Server\\RealtyWeb_Server.csproj|solutionrelative:realtyweb_server\\components\\pages\\house\\housemodify.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7ACC17E0-06E3-40B1-8130-74E3ED542368}|RealtyWeb_Server\\RealtyWeb_Server.csproj|d:\\rider_project\\realty02\\realtyweb_server\\components\\pages\\region\\regionmodify.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{7ACC17E0-06E3-40B1-8130-74E3ED542368}|RealtyWeb_Server\\RealtyWeb_Server.csproj|solutionrelative:realtyweb_server\\components\\pages\\region\\regionmodify.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{7ACC17E0-06E3-40B1-8130-74E3ED542368}|RealtyWeb_Server\\RealtyWeb_Server.csproj|d:\\rider_project\\realty02\\realtyweb_server\\components\\pages\\trainingblazor\\trainingblazorsharedcomponents\\_statecounter.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
@@ -42,8 +50,21 @@
       "DocumentGroups": [
         {
           "DockedWidth": 306,
-          "SelectedChildIndex": 7,
+          "SelectedChildIndex": 0,
           "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "House.cs",
+              "DocumentMoniker": "D:\\Rider_Project\\Realty02\\Realty_Models\\House.cs",
+              "RelativeDocumentMoniker": "Realty_Models\\House.cs",
+              "ToolTip": "D:\\Rider_Project\\Realty02\\Realty_Models\\House.cs",
+              "RelativeToolTip": "Realty_Models\\House.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAwAAAA0AAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-01-05T10:49:42.302Z",
+              "EditorCaption": ""
+            },
             {
               "$type": "Bookmark",
               "Name": "ST:0:0:{3ae79031-e1bc-11d0-8f78-00a0c9110057}"
@@ -66,20 +87,33 @@
             },
             {
               "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "HouseModify.razor",
+              "DocumentMoniker": "D:\\Rider_Project\\Realty02\\RealtyWeb_Server\\Components\\Pages\\House\\HouseModify.razor",
+              "RelativeDocumentMoniker": "RealtyWeb_Server\\Components\\Pages\\House\\HouseModify.razor",
+              "ToolTip": "D:\\Rider_Project\\Realty02\\RealtyWeb_Server\\Components\\Pages\\House\\HouseModify.razor",
+              "RelativeToolTip": "RealtyWeb_Server\\Components\\Pages\\House\\HouseModify.razor",
+              "ViewState": "AQIAAEsAAAAAAAAAAAAAAFsAAAAFAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-01-05T09:44:44.535Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
               "DocumentIndex": 1,
               "Title": "Region.cs",
               "DocumentMoniker": "D:\\Rider_Project\\Realty02\\Realty_Models\\Region.cs",
               "RelativeDocumentMoniker": "Realty_Models\\Region.cs",
               "ToolTip": "D:\\Rider_Project\\Realty02\\Realty_Models\\Region.cs",
               "RelativeToolTip": "Realty_Models\\Region.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAsAAAAHAAAA",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAIAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-12-12T09:57:13.399Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 4,
               "Title": "_StateCounter.razor",
               "DocumentMoniker": "D:\\Rider_Project\\Realty02\\RealtyWeb_Server\\Components\\Pages\\TrainingBlazor\\TrainingBlazorSharedComponents\\_StateCounter.razor",
               "RelativeDocumentMoniker": "RealtyWeb_Server\\Components\\Pages\\TrainingBlazor\\TrainingBlazorSharedComponents\\_StateCounter.razor",
@@ -87,12 +121,11 @@
               "RelativeToolTip": "RealtyWeb_Server\\Components\\Pages\\TrainingBlazor\\TrainingBlazorSharedComponents\\_StateCounter.razor",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAQAAAARAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-12-08T07:01:50.198Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-12-08T07:01:50.198Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 3,
               "Title": "RegionModify.razor",
               "DocumentMoniker": "D:\\Rider_Project\\Realty02\\RealtyWeb_Server\\Components\\Pages\\Region\\RegionModify.razor",
               "RelativeDocumentMoniker": "RealtyWeb_Server\\Components\\Pages\\Region\\RegionModify.razor",
@@ -105,7 +138,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 5,
               "Title": "NavMenu.razor",
               "DocumentMoniker": "D:\\Rider_Project\\Realty02\\RealtyWeb_Server\\Components\\Layout\\NavMenu.razor",
               "RelativeDocumentMoniker": "RealtyWeb_Server\\Components\\Layout\\NavMenu.razor",
@@ -117,7 +150,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 6,
               "Title": "RegionList.razor",
               "DocumentMoniker": "D:\\Rider_Project\\Realty02\\RealtyWeb_Server\\Components\\Pages\\Region\\RegionList.razor",
               "RelativeDocumentMoniker": "RealtyWeb_Server\\Components\\Pages\\Region\\RegionList.razor",
@@ -129,7 +162,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 7,
               "Title": "RealtyWeb_Server.csproj",
               "DocumentMoniker": "D:\\Rider_Project\\Realty02\\RealtyWeb_Server\\RealtyWeb_Server.csproj",
               "RelativeDocumentMoniker": "RealtyWeb_Server\\RealtyWeb_Server.csproj",
@@ -141,7 +174,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
+              "DocumentIndex": 9,
               "Title": "MockRegionRepository.cs",
               "DocumentMoniker": "D:\\Rider_Project\\Realty02\\Realty_Biz\\Repository\\MockRegionRepository.cs",
               "RelativeDocumentMoniker": "Realty_Biz\\Repository\\MockRegionRepository.cs",
@@ -153,7 +186,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 8,
               "Title": "Program.cs",
               "DocumentMoniker": "D:\\Rider_Project\\Realty02\\RealtyWeb_Server\\Program.cs",
               "RelativeDocumentMoniker": "RealtyWeb_Server\\Program.cs",
