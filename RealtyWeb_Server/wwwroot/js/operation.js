@@ -37,6 +37,6 @@ function ShowRemoveConfirmftionModal() {
     $('#removeConfirmationModal').modal('show');
 }
 
-function hideRemoveConfirmftionModal() {
+function HideRemoveConfirmftionModal() {
     $('#removeConfirmationModal').modal('hide');
 }

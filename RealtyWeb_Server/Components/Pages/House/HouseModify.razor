@@ -1,6 +1,7 @@
-﻿@page "/region/create"
-@page "/region/edit/{Id:int}"
+﻿@page "/house/create"
+@page "/house/edit/{Id:int}"
 @inject IRegionRepository _regionRepository
+@inject IHouseRepository _houseRepository
 @inject IJSRuntime _JS
 @inject NavigationManager _navigationManager
 
@@ -15,7 +16,8 @@
         }
         else
         {
-            <EditForm Model="region" OnValidSubmit="ModifyRegion" FormName="regionEdit">
+            @*
+            <EditForm Model="region" OnValidSubmit="ModifyHouse" FormName="regionEdit">
                 <DataAnnotationsValidator />
                 <div class="form-group">
                     <label>Наименование</label>
@@ -31,48 +33,52 @@
                     <button class="btn btn-primary">@Caption</button>
                     <NavLink href="region" class="btn btn-secondary">Назад к списку</NavLink>
                 </div>
-            </EditForm>
+            </EditForm>*@
         }
     </div>
 </div>
 
 @code {
     private string Caption { get; set; } = "Добавить";
-    private Region region { get; set; } = new Region();
+    private IEnumerable<Region> Regions = new List<Region>();
+    private House house { get; set; } = new House();
     [Parameter]
     public int Id { get; set; }
     public bool IsLoading { get; set; } = true;
     private async Task LoadRegion()
     {
-        region = await _regionRepository.Get(Id);
+        //region = await _regionRepository.Get(Id);
+        IsLoading = false;
+    }
+    private async Task LoadHouse()
+    {
+        Regions = await _regionRepository.GetAll();
+        if (Id > 0)
+        {
+            Caption = "Обновить";
+            house = await _houseRepository.Get(Id);
+        }
         IsLoading = false;
     }
     protected override async Task OnParametersSetAsync()
     {
-        if (Id == 0)
-        {
-            //Добавление нового региона
-            IsLoading = false;
-        } else
-        {
-            //Изменение существующего региона
-            Caption = "Обновить";
-            await Task.Run(LoadRegion);
-        }
+        await LoadHouse();
     }
-    private async Task ModifyRegion()
+    private async Task ModifyHouse()
     {
         try
         {
-            if (region.Id == 0)
+            if (house.Id == 0)
             {
-                await _regionRepository.Create(region);
+                await _houseRepository.Create(house);
+                await _JS.NotyfSuccess("Дом добавлен успешно");
             }
             else
             {
-                await _regionRepository.Update(region);
+                await _houseRepository.Update(house);
+                await _JS.NotyfSuccess("Дом обновлен успешно");
             }
-            _navigationManager.NavigateTo("region");
+            _navigationManager.NavigateTo("house");
         }
         catch(Exception ex)
         {
@@ -85,6 +91,6 @@
     }
     private void HandleInputGIBDD(ChangeEventArgs e)
     {
-        region.GIBDD = e.Value as string;
+        //region.GIBDD = e.Value as string;
     }
 }

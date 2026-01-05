@@ -23,9 +23,9 @@ namespace Realty_Biz.Repository
             };
         }
 
-        public Region Create(Region obj)
+        public async Task<Region> Create(Region obj)
         {
-            Thread.Sleep(500);
+            await Task.Delay(500);
             if (_data.Where(x => x.Nm?.ToUpper() == obj.Nm.ToUpper()).Count() > 0)
             {
                 throw new Exception("Элемент уже существует в списке.");
@@ -34,9 +34,9 @@ namespace Realty_Biz.Repository
             return obj;
         }
 
-        public int Delete(int id)
+        public async Task<int> Delete(int id)
         {
-            Thread.Sleep(500);
+            await Task.Delay(500);
             var obj = _data.FirstOrDefault(p => p.Id == id);
             if (obj == null)
             {
@@ -45,22 +45,22 @@ namespace Realty_Biz.Repository
             return _data.RemoveAll(x => x.Id == id);
         }
 
-        public Region Get(int id)
+        public async Task<Region> Get(int id)
         {
-            Thread.Sleep(500);
+            await Task.Delay(500);
             var obj = _data.FirstOrDefault(p => p.Id == id);
             return obj ?? new Region();
         }
 
-        public IEnumerable<Region> GetAll()
+        public async Task<IEnumerable<Region>> GetAll()
         {
-            Thread.Sleep(500);
+            await Task.Delay(500);
             return _data;
         }
 
-        public Region Update(Region obj)
+        public async Task<Region> Update(Region obj)
         {
-            Thread.Sleep(500);
+            await Task.Delay(500);
             var objFromData = _data.FirstOrDefault(p => p.Id == obj.Id);
             if (objFromData != null) 
             {

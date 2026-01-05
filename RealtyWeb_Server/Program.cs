@@ -12,6 +12,7 @@ builder.Services.AddRazorComponents()
 builder.Services.AddScoped<ILocalStorageService, LocalStorageService>();
 builder.Services.AddScoped<StateContainerService>();
 builder.Services.AddScoped<IRegionRepository, MockRegionRepository>();
+builder.Services.AddScoped<IHouseRepository, MockHouseRepository>();
 
 var app = builder.Build();
 

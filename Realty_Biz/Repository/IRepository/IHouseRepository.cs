@@ -7,12 +7,12 @@ using Realty_Models;
 
 namespace Realty_Biz.Repository.IRepository
 {
-    public interface IRegionRepository
+    public interface IHouseRepository
     {
-        public Task<Region> Create(Region obj);
-        public Task<Region> Update(Region obj);
+        public Task<House> Create(House obj);
+        public Task<House> Update(House obj);
         public Task<int> Delete(int id);
-        public Task<Region> Get(int id);
-        public Task<IEnumerable<Region>> GetAll();
+        public Task<House> Get(int id);
+        public Task<IEnumerable<House>> GetAll();
     }
 }

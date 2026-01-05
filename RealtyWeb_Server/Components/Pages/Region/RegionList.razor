@@ -1,7 +1,8 @@
 ﻿@page "/region"
 @inject IRegionRepository _regionRepository
+@inject IJSRuntime _JS
 
-<_RemoveConfirmation />
+<_RemoveConfirmation ConfirmationChanged="ConfirmRemove_Click" IsProcessingRunning="IsLoading"></_RemoveConfirmation>
 <div class="row mt-4">
     <div class="col-6">
         <h4 class="card-title text-primary">Список регионов</h4>
@@ -30,6 +31,9 @@
                                 <td>
                                     <NavLink href="@($"region/edit/{item.Id}")" class="btn btn-info">Изменить</NavLink>
                                 </td>
+                                <td>
+                                    <button class="btn btn-danger m-1" @onclick="() => HandleRemove(item.Id)">Удалить</button>
+                                </td>
                             </tr>
                         }
                     </tbody>
@@ -53,16 +57,34 @@
 @code {
     private IEnumerable<Region> Regions { get; set; } = new List<Region>();
     public bool IsLoading { get; set; } = true;
-    private void LoadRegions()
+    public int RemoveRegionId { get; set; } = 0;
+    private async Task ConfirmRemove_Click(bool isErase)
     {
-        Regions = _regionRepository.GetAll();
+        IsLoading = true;
+        if (isErase && RemoveRegionId > 0)
+        {
+            await Task.Delay(3000);
+            await _regionRepository.Delete(RemoveRegionId);
+            await _regionRepository.GetAll();
+            await _JS.InvokeVoidAsync("HideRemoveConfirmftionModal");
+        }
+        IsLoading = false;
+    }
+    private void HandleRemove(int id)
+    {
+        RemoveRegionId = id;
+        _JS.InvokeVoidAsync("ShowRemoveConfirmftionModal");
+    }
+    private async Task LoadRegions()
+    {
+        Regions = await _regionRepository.GetAll();
         IsLoading = false;
     }
     protected override async Task OnInitializedAsync()
     {
-        await Task.Run(() =>
+        await Task.Run(async () =>
         {
-            LoadRegions();    
+            await LoadRegions();    
         });
     }
 }
