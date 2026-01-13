@@ -4,10 +4,11 @@
 @inject IHouseRepository _houseRepository
 @inject IJSRuntime _JS
 @inject NavigationManager _navigationManager
+@inject IFileWork _fileWork
 
 <div class="row my-2">
-    <h3 class="card-title text-primary mb-3">@Caption регион</h3>
-    <div class="col-12">
+    <h3 class="card-title text-primary mb-3">@Caption дом</h3>
+    <div class="col-md-10">
         @if (IsLoading)
         {
             <div class="text-center">
@@ -48,7 +49,7 @@
                 <div class="form-group">
                     <label>Примечание</label>
                     <ValidationMessage For="() => house.Notes"></ValidationMessage>
-                    <InputTextArea @bind-Value="house.Notes" class="form-control" ></InputTextArea>
+                    <InputTextArea @bind-Value="house.Notes" class="form-control"></InputTextArea>
                 </div>
                 <div class="row pt-3">
                     <div class="form-group col-6">
@@ -64,22 +65,44 @@
                         </div>
                     </div>
                 </div>
+                <div class="row pt-3">
+                    <div class="form-group col-md-6">
+                        <label>Регион</label>
+                        <ValidationMessage For="() => house.RegionId"></ValidationMessage>
+                        <InputSelect @bind-Value="house.RegionId" class="form-select">
+                            <option value="0" disabled="disabled">--Выбор региона--</option>
+                            @foreach (var row in Regions)
+                            {
+                                <option value="@row.Id">@row.Nm</option>
+                            }
+                        </InputSelect>
+                    </div>
+                    <div class="form-group pt-4 col-md-6">
+                        <label class="file-upload">
+                            <InputFile OnChange="HandlePictureUpload"></InputFile>Выберите фото
+                        </label>
+                    </div>
+                </div>
                 <div class="form-group py-2">
                     <button class="btn btn-primary">@Caption</button>
-                    <NavLink href="region" class="btn btn-secondary">Назад к списку</NavLink>
+                    <NavLink href="house" class="btn btn-secondary">Назад к списку</NavLink>
                 </div>
-        </EditForm>
+            </EditForm>
         }
+    </div>
+    <div class="col-md-2">
+        <img src="@house.ImageUrl" class="w-100" />
     </div>
 </div>
 
 @code {
     private string Caption { get; set; } = "Добавить";
     private IEnumerable<Region> Regions = new List<Region>();
-    private House house { get; set; } = new House();
+    private House house { get; set; } = new House() { ImageUrl = "images/default.png" };
     [Parameter]
     public int Id { get; set; }
     public bool IsLoading { get; set; } = true;
+    public string OldImageUrl { get; set; } = string.Empty;
     private async Task LoadHouse()
     {
         Regions = await _regionRepository.GetAll();
@@ -87,7 +110,13 @@
         {
             Caption = "Обновить";
             house = await _houseRepository.Get(Id);
+            if (string.IsNullOrEmpty(house.ImageUrl))
+            {
+                house.ImageUrl = "images/default.png";
+            }
+            OldImageUrl = house.ImageUrl ?? string.Empty;
         }
+        _fileWork.CrearTemp();
         IsLoading = false;
     }
     protected override async Task OnParametersSetAsync()
@@ -98,6 +127,14 @@
     {
         try
         {
+            if (house.ImageUrl != null)
+            {
+                if (house.ImageUrl.Contains("temp_"))
+                {
+                    var newFileName = _fileWork.RenameFile(house.ImageUrl);
+                    house.ImageUrl = newFileName;
+                }
+            }
             if (house.Id == 0)
             {
                 await _houseRepository.Create(house);
@@ -105,12 +142,16 @@
             }
             else
             {
+                if (OldImageUrl != house.ImageUrl && !OldImageUrl.Contains("default.png"))
+                {
+                    _fileWork.DeleteFile(OldImageUrl);
+                }
                 await _houseRepository.Update(house);
                 await _JS.NotyfSuccess("Дом обновлен успешно");
             }
             _navigationManager.NavigateTo("house");
         }
-        catch(Exception ex)
+        catch (Exception ex)
         {
             await SweetAlertFailure(ex.Message);
         }
@@ -121,6 +162,31 @@
     }
     private void HandleInputLot(ChangeEventArgs e)
     {
-        throw new NotImplementedException();
+        house.Lot = e.Value as string;
+    }
+    private async Task HandlePictureUpload(InputFileChangeEventArgs e)
+    {
+        try
+        {
+            if (e.GetMultipleFiles().Count > 0)
+            {
+                foreach (var file in e.GetMultipleFiles())
+                {
+                    FileInfo fileInfo = new FileInfo(file.Name);
+                    if (!(fileInfo.Extension.ToLower() == ".jpg"
+                        || fileInfo.Extension.ToLower() == ".png"
+                        || fileInfo.Extension.ToLower() == ".jpeg"))
+                    {
+                        await _JS.NotyfError("Вы можете использовать только файлы типов jpg, png, jpeg!");
+                        return;
+                    }
+                    house.ImageUrl = await _fileWork.UploadFile(file);
+                }
+            }
+        }
+        catch (Exception ex)
+        {
+            await _JS.NotyfError(ex.Message);
+        }
     }
 }

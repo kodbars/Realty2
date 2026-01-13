@@ -2,6 +2,7 @@
 @inject IHouseRepository _houseRepository
 @inject IRegionRepository _regionRepository
 @inject IJSRuntime _JS
+@inject IFileWork _fileWork
 
 <_RemoveConfirmation ConfirmationChanged="ConfirmRemove_Click" IsProcessingRunning="IsLoading"></_RemoveConfirmation>
 <div class="row mt-4">
@@ -81,6 +82,11 @@
         IsLoading = true;
         if (isErase && RemoveHouseId != 0)
         {
+            House house = await _houseRepository.Get(RemoveHouseId);
+            if (!string.IsNullOrEmpty(house.ImageUrl) && !house.ImageUrl.Contains("default.png"))
+            {
+                _fileWork.DeleteFile(house.ImageUrl);
+            }
             await _houseRepository.Delete(RemoveHouseId);
             await _JS.NotyfSuccess("Дом удален успешно");
             await _houseRepository.GetAll();
