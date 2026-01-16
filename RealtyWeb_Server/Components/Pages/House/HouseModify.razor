@@ -49,7 +49,7 @@
                 <div class="form-group">
                     <label>Примечание</label>
                     <ValidationMessage For="() => house.Notes"></ValidationMessage>
-                    <InputTextArea @bind-Value="house.Notes" class="form-control"></InputTextArea>
+                    <RadzenHtmlEditor @bind-Value="house.Notes" UploadUrl="upload/image" style="height: 300px;" />
                 </div>
                 <div class="row pt-3">
                     <div class="form-group col-6">

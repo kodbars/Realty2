@@ -48,6 +48,9 @@
                                     <NavLink href="@($"house/edit/{item.Id}")" class="btn btn-info">Изменить</NavLink>
                                 </td>
                                 <td>
+                                    <NavLink href="@($"house/owners/{item.Id}")" class="btn btn-success">Владельцы</NavLink>
+                                </td>
+                                <td>
                                     <button class="btn btn-danger m-1" @onclick="() => HandleRemove(item.Id)">Удалить</button>
                                 </td>
                             </tr>

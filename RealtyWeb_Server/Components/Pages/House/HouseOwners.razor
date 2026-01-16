@@ -1,0 +1,93 @@
+﻿@page "/house/owners/{Id:int}"
+@inject IRegionRepository _regionRepository
+@inject IHouseRepository _houseRepository
+@inject IOwnerRepository _ownerRepository
+
+<h3 class="card-title text-primary mb-3 ml-3">Владельцы дома</h3>
+
+@if (IsLoading)
+{
+    <div class="text-center">
+        <img src="images/loading.gif" />
+    </div>
+}
+else
+{
+    <div class="row border p-2 mb-4">
+        <div class="col-11">
+            <div class="card-body">
+                <h4>Лот: @house.Lot</h4>
+                Адрес: @house.Address<br />
+                Регион: @Regions.Where(x => x.Id == house.RegionId)?.FirstOrDefault()?.Nm<br /><hr />
+                Примечания: <span>@((MarkupString)(house.Notes ?? string.Empty))</span>
+            </div>
+        </div>
+        <div class="col-1">
+            <img src="@house.ImageUrl" class="w-100"/>
+        </div>
+    </div>
+
+    <RadzenDataGrid Data="@Owners" TItem="Owner">
+        <Columns>
+            <RadzenDataGridColumn TItem="Owner" Property="Id" Title="Id" Width="120px"/> 
+            <RadzenDataGridColumn TItem="Owner" Property="Fio" Title="Ф.И.О." Width="200px">
+                <EditTemplate Context="owner">
+                    <RadzenTextBox @bind-Value="owner.Fio" Style="width:100%; display : block" Name="Fio" />
+                    <RadzenRequiredValidator Text="Заполните Ф.И.О." Component="Fio" Popup="true" />
+                </EditTemplate>
+            </RadzenDataGridColumn>
+            <RadzenDataGridColumn TItem="Owner" Property="StartTitul" Title="Начало" FormatString="{0:d}" Width="160px" >
+                <EditTemplate Context="owner">
+                    <RadzenDatePicker @bind-Value="owner.StartTitul" Style="width:100%; display : block" Name="StartTitul" DateFormat="dd.MM.yyyy" />
+                    <RadzenRequiredValidator Text="Заполните начало" Component="StartTitul" Popup="true" />
+                </EditTemplate>
+            </RadzenDataGridColumn>
+            <RadzenDataGridColumn TItem="Owner" Property="EndTitul" Title="Окончание" FormatString="{0:d}" Width="160px">
+                <EditTemplate Context="owner">
+                    <RadzenDatePicker @bind-Value="owner.EndTitul" Style="width:100%; display : block" DateFormat="dd.MM.yyyy" />
+                </EditTemplate>
+            </RadzenDataGridColumn>
+            <RadzenDataGridColumn TItem="Owner" Property="TypeTitul" Title="Вид" Width="160px" >
+                <EditTemplate Context="owner">
+                    <RadzenDropDown @bind-Value="owner.TypeTitul" Style="width:100%; display : block" Data="@TypeTitulList" Name="TypeTitul" />
+                    <RadzenRequiredValidator Text="Заполните Вид" Component="TypeTitulList" Popup="true" />
+                </EditTemplate>
+            </RadzenDataGridColumn>
+            <RadzenDataGridColumn TItem="Owner" Property="NumTitul" Title="Номер свидетельства" Width="160px" >
+                <EditTemplate Context="owner">
+                    <RadzenTextBox @bind-Value="owner.NumTitul" Style="width:100%; display : block" Name="NumTitul" />
+                    <RadzenRequiredValidator Text="Заполните Номер" Component="NumTitul" Popup="true" />
+                </EditTemplate>
+            </RadzenDataGridColumn>
+        </Columns>
+    </RadzenDataGrid>
+}
+
+@code {
+    [Parameter]
+    public int Id { get; set; }
+    private House house { get; set; } = new();
+    private IEnumerable<Region> Regions { get; set; } = new List<Region>();
+    private IEnumerable<Owner> Owners { get; set; } = new List<Owner>();
+    private bool IsLoading { get; set; } = true;
+    IEnumerable<string> TypeTitulList = new List<string>()
+    {
+        "Собственность", "Долевая собственность. 1/2 доли", "Долевая собственность. 1/3 доли", "Долевая собственность. 2/3 доли"
+    };
+
+    protected override async Task OnAfterRenderAsync(bool firstRender)
+    {
+        if (firstRender)
+        {
+            IsLoading = true;
+            StateHasChanged();
+            house = await _houseRepository.Get(Id);
+            house.ImageUrl = string.IsNullOrEmpty(house.ImageUrl) ? "images/default.png" : house.ImageUrl;
+
+            Regions = await _regionRepository.GetAll();
+            Owners = await _ownerRepository.GetAll(Id);
+            IsLoading = false;
+            StateHasChanged();
+        }
+    }
+}

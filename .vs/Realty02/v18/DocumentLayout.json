@@ -1,12 +1,37 @@
 {
   "Version": 1,
   "WorkspaceRootPath": "D:\\Program\\RepositoryProject\\",
-  "Documents": [],
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{7ACC17E0-06E3-40B1-8130-74E3ED542368}|RealtyWeb_Server\\RealtyWeb_Server.csproj|d:\\program\\repositoryproject\\realtyweb_server\\components\\pages\\house\\houseowners.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{7ACC17E0-06E3-40B1-8130-74E3ED542368}|RealtyWeb_Server\\RealtyWeb_Server.csproj|solutionrelative:realtyweb_server\\components\\pages\\house\\houseowners.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    }
+  ],
   "DocumentGroupContainers": [
     {
       "Orientation": 0,
       "VerticalTabListWidth": 256,
-      "DocumentGroups": []
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 0,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "HouseOwners.razor",
+              "DocumentMoniker": "D:\\Program\\RepositoryProject\\RealtyWeb_Server\\Components\\Pages\\House\\HouseOwners.razor",
+              "RelativeDocumentMoniker": "RealtyWeb_Server\\Components\\Pages\\House\\HouseOwners.razor",
+              "ToolTip": "D:\\Program\\RepositoryProject\\RealtyWeb_Server\\Components\\Pages\\House\\HouseOwners.razor",
+              "RelativeToolTip": "RealtyWeb_Server\\Components\\Pages\\House\\HouseOwners.razor",
+              "ViewState": "AgIAAC0AAAAAAAAAAAAAADoAAABCAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-01-16T18:29:43.533Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
     }
   ]
 }
