@@ -1,6 +1,8 @@
+using Microsoft.EntityFrameworkCore;
 using Radzen;
 using Realty_Biz.Repository;
 using Realty_Biz.Repository.IRepository;
+using Realty_Db.Data;
 using RealtyWeb_Server.Components;
 using RealtyWeb_Server.Utils;
 using RealtyWeb_Server.Utils.IService;
@@ -16,6 +18,8 @@ builder.Services.AddScoped<IRegionRepository, MockRegionRepository>();
 builder.Services.AddScoped<IHouseRepository, MockHouseRepository>();
 builder.Services.AddScoped<IOwnerRepository, MockOwnerRepository>();
 builder.Services.AddScoped<IFileWork, FileWork>();
+builder.Services.AddScoped<DialogService>();
+builder.Services.AddDbContext<AppDbContext>(options => options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
 builder.Services.AddRadzenComponents();
 
 var app = builder.Build();

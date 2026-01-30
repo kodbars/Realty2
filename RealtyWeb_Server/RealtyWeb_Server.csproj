@@ -14,6 +14,7 @@
   <ItemGroup>
     <ProjectReference Include="..\InputboxComponents\InputboxComponents.csproj" />
     <ProjectReference Include="..\Realty_Biz\Realty_Biz.csproj" />
+    <ProjectReference Include="..\Realty_Db\Realty_Db.csproj" />
     <ProjectReference Include="..\Realty_Models\Realty_Models.csproj" />
   </ItemGroup>
 
@@ -28,6 +29,11 @@
   </ItemGroup>
 
   <ItemGroup>
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="8.0.0">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="8.0.0" />
     <PackageReference Include="Radzen.Blazor" Version="8.6.0" />
   </ItemGroup>
 

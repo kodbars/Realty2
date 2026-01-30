@@ -4,11 +4,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Realty_Models
 {
     public class House
     {
+        [Key]
         public int Id { get; set; }
         [Required(ErrorMessage = "Введите Номер лота")]
         [RegularExpression(@"\d{3}", ErrorMessage = "Некорректный Номер лота")]
@@ -30,5 +32,8 @@ namespace Realty_Models
         public string? ImageUrl { get; set; }
         [Range(1, int.MaxValue, ErrorMessage = "Выберите регион")]
         public int RegionId { get; set; }
+        [ForeignKey("RegionId")]
+        public Region? Region { get; set; } //Навигационное поле
+        public ICollection<Owner> Owners { get; set; } = new List<Owner>();
     }
 }

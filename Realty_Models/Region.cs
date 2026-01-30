@@ -9,6 +9,7 @@ namespace Realty_Models
 {
     public class Region
     {
+        [Key]
         public int Id { get; set; }
         [Required(ErrorMessage = "Введите наименование")]
         public string? Nm { get; set; }

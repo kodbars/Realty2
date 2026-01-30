@@ -2,6 +2,8 @@
 @inject IRegionRepository _regionRepository
 @inject IHouseRepository _houseRepository
 @inject IOwnerRepository _ownerRepository
+@inject Radzen.DialogService DialogService
+@inject IJSRuntime _JS
 
 <h3 class="card-title text-primary mb-3 ml-3">Владельцы дома</h3>
 
@@ -23,20 +25,48 @@ else
             </div>
         </div>
         <div class="col-1">
-            <img src="@house.ImageUrl" class="w-100"/>
+            <img src="@house.ImageUrl" class="w-100" />
         </div>
     </div>
 
-    <RadzenDataGrid Data="@Owners" TItem="Owner">
+    <RadzenButton ButtonStyle="Radzen.ButtonStyle.Info" Icon="add_circle_outline" class="mt-2 mb-4" Text="Новый владелец" Click="@InsertRow" Disabled=@(ownerToInsert != null || ownerToUpdate != null)/>
+
+    <RadzenDataGrid 
+        @ref="grid" 
+        Data="@Owners" 
+        TItem="Owner" 
+        EditMode="Radzen.DataGridEditMode.Single" 
+        RowUpdate="@OnUpdateRow" 
+        RowCreate="@OnCreateRow"
+        AllowFiltering="true" 
+        AllowSorting="true" 
+        FilterCaseSensitivity="Radzen.FilterCaseSensitivity.CaseInsensitive" 
+        OrOperatorText="ИЛИ" 
+        AndOperatorText="И" 
+        EqualsText="Равно" 
+        ContainsText="Содержит" 
+        ClearFilterText="Сброс" 
+        ApplyFilterText="ОК" 
+        FilterText="Фильтр" 
+        AllowPaging="true" 
+        PageSize="5" 
+        PageNumbersCount="2" 
+        Sort="@Reset" 
+        Filter="@Reset" 
+        Page="@Reset">
         <Columns>
-            <RadzenDataGridColumn TItem="Owner" Property="Id" Title="Id" Width="120px"/> 
+            <RadzenDataGridColumn TItem="Owner" Property="Id" Title="Id" Width="120px" SortOrder="Radzen.SortOrder.Descending">
+                <Template Context="owner">
+                    @(owner.Id > 0 ? owner.Id.ToString() : string.Empty)
+                </Template>
+            </RadzenDataGridColumn>
             <RadzenDataGridColumn TItem="Owner" Property="Fio" Title="Ф.И.О." Width="200px">
                 <EditTemplate Context="owner">
                     <RadzenTextBox @bind-Value="owner.Fio" Style="width:100%; display : block" Name="Fio" />
                     <RadzenRequiredValidator Text="Заполните Ф.И.О." Component="Fio" Popup="true" />
                 </EditTemplate>
             </RadzenDataGridColumn>
-            <RadzenDataGridColumn TItem="Owner" Property="StartTitul" Title="Начало" FormatString="{0:d}" Width="160px" >
+            <RadzenDataGridColumn TItem="Owner" Property="StartTitul" Title="Начало" FormatString="{0:d}" Width="160px">
                 <EditTemplate Context="owner">
                     <RadzenDatePicker @bind-Value="owner.StartTitul" Style="width:100%; display : block" Name="StartTitul" DateFormat="dd.MM.yyyy" />
                     <RadzenRequiredValidator Text="Заполните начало" Component="StartTitul" Popup="true" />
@@ -47,16 +77,27 @@ else
                     <RadzenDatePicker @bind-Value="owner.EndTitul" Style="width:100%; display : block" DateFormat="dd.MM.yyyy" />
                 </EditTemplate>
             </RadzenDataGridColumn>
-            <RadzenDataGridColumn TItem="Owner" Property="TypeTitul" Title="Вид" Width="160px" >
+            <RadzenDataGridColumn TItem="Owner" Property="TypeTitul" Title="Вид" Width="160px">
                 <EditTemplate Context="owner">
                     <RadzenDropDown @bind-Value="owner.TypeTitul" Style="width:100%; display : block" Data="@TypeTitulList" Name="TypeTitul" />
-                    <RadzenRequiredValidator Text="Заполните Вид" Component="TypeTitulList" Popup="true" />
+                    <RadzenRequiredValidator Text="Заполните Вид" Component="TypeTitul" Popup="true" />
                 </EditTemplate>
             </RadzenDataGridColumn>
-            <RadzenDataGridColumn TItem="Owner" Property="NumTitul" Title="Номер свидетельства" Width="160px" >
+            <RadzenDataGridColumn TItem="Owner" Property="NumTitul" Title="Номер свидетельства" Width="160px">
                 <EditTemplate Context="owner">
                     <RadzenTextBox @bind-Value="owner.NumTitul" Style="width:100%; display : block" Name="NumTitul" />
                     <RadzenRequiredValidator Text="Заполните Номер" Component="NumTitul" Popup="true" />
+                </EditTemplate>
+            </RadzenDataGridColumn>
+            <RadzenDataGridColumn TItem="Owner" Context="owner" Filterable="false" Sortable="false" TextAlign="Radzen.TextAlign.Right" Width="156px">
+                <Template Context="owner">
+                    <RadzenButton Icon="edit" Size="Radzen.ButtonSize.Medium" Click="@((args) => EditRow(owner))"></RadzenButton>
+                    <RadzenButton Icon="delete" Size="Radzen.ButtonSize.Medium" Click="@((args) => DeleteRow(owner))"></RadzenButton>
+                </Template>
+                <EditTemplate Context="owner">
+                    <RadzenButton Icon="check" Size="Radzen.ButtonSize.Medium" Click="@((args) => SaveRow(owner))"></RadzenButton>
+                    <RadzenButton Icon="close" Size="Radzen.ButtonSize.Medium" Click="@((args) => CancelEdit(owner))"></RadzenButton>
+                    <RadzenButton Icon="delete" Size="Radzen.ButtonSize.Medium" Click="@((args) => DeleteRow(owner))"></RadzenButton>
                 </EditTemplate>
             </RadzenDataGridColumn>
         </Columns>
@@ -70,10 +111,167 @@ else
     private IEnumerable<Region> Regions { get; set; } = new List<Region>();
     private IEnumerable<Owner> Owners { get; set; } = new List<Owner>();
     private bool IsLoading { get; set; } = true;
+    RadzenDataGrid<Owner>? grid;
+    Owner? ownerToUpdate;
+    Owner? ownerToInsert;
+
     IEnumerable<string> TypeTitulList = new List<string>()
     {
         "Собственность", "Долевая собственность. 1/2 доли", "Долевая собственность. 1/3 доли", "Долевая собственность. 2/3 доли"
     };
+
+    async Task DeleteRow(Owner owner)
+    {
+        if (Owners.Contains(owner))
+        {
+            try
+            {
+                var IsDel = await Confirm("Удалить запись?");
+                if (IsDel)
+                {
+                    await _ownerRepository.Delete(owner.Id);
+                    ((List<Owner>)Owners).RemoveAll(x => x.Id == owner.Id);
+                }
+            }
+            catch (Exception ex)
+            {
+                await SweetAlertFailure(ex.Message);
+            }
+            if (grid != null)
+            {
+                await grid.Reload();
+            }
+        }
+        else
+        {
+            if (grid != null)
+            {
+                await grid.Reload();
+            }
+        }
+        Reset();
+    }
+
+    async Task<bool> Confirm(string message)
+    {
+        var result = await DialogService.Confirm(message, "Внимание", new Radzen.ConfirmOptions
+        {
+            OkButtonText = "Да",
+            CancelButtonText = "Нет"
+        });
+        return result ?? false;
+    }
+
+    void Reset()
+    {
+        ownerToInsert = null;
+        ownerToUpdate = null;
+    }
+
+    async Task OnCreateRow(Owner owner)
+    {
+        try
+        {
+            var newOwner = await _ownerRepository.Create(owner);
+            ((List<Owner>) Owners).Add(newOwner);
+        }
+        catch (Exception ex)
+        {
+            await SweetAlertFailure(ex.Message);
+        }
+        ownerToInsert = null;
+        if (grid != null)
+        {
+            await grid.Reload();
+        }
+    }
+
+    async Task InsertRow()
+    {
+        if (grid != null)
+        {
+            ownerToInsert = new Owner()
+            {
+                Id = 0, StartTitul = DateTime.Now.Date, HouseId = Id    
+            };
+            await grid.InsertRow(ownerToInsert);
+        }    
+    }
+
+    async Task EditRow(Owner owner)
+    {
+        ownerToUpdate = new Owner()
+        {
+            Id = owner.Id,
+            Fio = owner.Fio,
+            StartTitul = owner.StartTitul,
+            TypeTitul = owner.TypeTitul,
+            NumTitul = owner.NumTitul,
+            EndTitul = owner.EndTitul,
+            HouseId = owner.HouseId
+        };
+        if (grid != null)
+        {
+            await grid.EditRow(owner);
+        }
+    }
+
+    async Task SaveRow(Owner owner)
+    {
+        if (grid != null)
+        {
+            await grid.UpdateRow(owner);
+        }    
+    }
+
+    void CancelEdit(Owner owner)
+    {
+        ReturnOwner();
+        Reset();
+        if (grid != null)
+        {
+            grid.CancelEditRow(owner);
+        }
+    }
+
+    void ReturnOwner()
+    {
+        if (ownerToUpdate != null)
+        {
+            Owners.Where(p => p.Id == ownerToUpdate.Id).ToList().ForEach(x =>
+            {
+                x.Id = ownerToUpdate.Id;
+                x.Fio = ownerToUpdate.Fio;
+                x.StartTitul = ownerToUpdate.StartTitul;
+                x.TypeTitul = ownerToUpdate.TypeTitul;
+                x.NumTitul = ownerToUpdate.NumTitul;
+                x.EndTitul = ownerToUpdate.EndTitul;
+            });
+        }    
+    }
+
+    async Task OnUpdateRow(Owner owner)
+    {
+        try
+        {
+            await _ownerRepository.Update(owner);
+        }
+        catch (Exception ex)
+        {
+            await SweetAlertFailure(ex.Message);
+            ReturnOwner();
+        }
+        Reset();
+        if (grid != null)
+        {
+            await grid.Reload();
+        }
+    }
+
+    private async Task SweetAlertFailure(string msg)
+    {
+        await _JS.InvokeVoidAsync("ShowSweetAlert", "error", msg);
+    }
 
     protected override async Task OnAfterRenderAsync(bool firstRender)
     {

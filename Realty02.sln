@@ -13,6 +13,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "InputboxComponents", "Input
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Realty_Biz", "Realty_Biz\Realty_Biz.csproj", "{97BB47F4-B1EE-44E4-A3C6-8585611BD56D}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Realty_Db", "Realty_Db\Realty_Db.csproj", "{F8CAC7CE-B18B-478C-B984-4700198953D9}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -39,6 +41,10 @@ Global
 		{97BB47F4-B1EE-44E4-A3C6-8585611BD56D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{97BB47F4-B1EE-44E4-A3C6-8585611BD56D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{97BB47F4-B1EE-44E4-A3C6-8585611BD56D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F8CAC7CE-B18B-478C-B984-4700198953D9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F8CAC7CE-B18B-478C-B984-4700198953D9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F8CAC7CE-B18B-478C-B984-4700198953D9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F8CAC7CE-B18B-478C-B984-4700198953D9}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
