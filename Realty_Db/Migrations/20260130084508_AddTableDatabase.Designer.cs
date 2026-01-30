@@ -12,7 +12,7 @@ using Realty_Db.Data;
 namespace Realty_Db.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20260129075622_AddTableDatabase")]
+    [Migration("20260130084508_AddTableDatabase")]
     partial class AddTableDatabase
     {
         /// <inheritdoc />
