@@ -1,5 +1,4 @@
 ﻿@page "/house/owners/{Id:int}"
-@inject IRegionRepository _regionRepository
 @inject IHouseRepository _houseRepository
 @inject IOwnerRepository _ownerRepository
 @inject Radzen.DialogService DialogService
@@ -20,7 +19,7 @@ else
             <div class="card-body">
                 <h4>Лот: @house.Lot</h4>
                 Адрес: @house.Address<br />
-                Регион: @Regions.Where(x => x.Id == house.RegionId)?.FirstOrDefault()?.Nm<br /><hr />
+                Регион: @house.Region?.Nm<br /><hr />
                 Примечания: <span>@((MarkupString)(house.Notes ?? string.Empty))</span>
             </div>
         </div>
@@ -108,7 +107,6 @@ else
     [Parameter]
     public int Id { get; set; }
     private House house { get; set; } = new();
-    private IEnumerable<Region> Regions { get; set; } = new List<Region>();
     private IEnumerable<Owner> Owners { get; set; } = new List<Owner>();
     private bool IsLoading { get; set; } = true;
     RadzenDataGrid<Owner>? grid;
@@ -282,7 +280,6 @@ else
             house = await _houseRepository.Get(Id);
             house.ImageUrl = string.IsNullOrEmpty(house.ImageUrl) ? "images/default.png" : house.ImageUrl;
 
-            Regions = await _regionRepository.GetAll();
             Owners = await _ownerRepository.GetAll(Id);
             IsLoading = false;
             StateHasChanged();

@@ -14,9 +14,9 @@ builder.Services.AddRazorComponents()
     .AddInteractiveServerComponents();
 builder.Services.AddScoped<ILocalStorageService, LocalStorageService>();
 builder.Services.AddScoped<StateContainerService>();
-builder.Services.AddScoped<IRegionRepository, MockRegionRepository>();
-builder.Services.AddScoped<IHouseRepository, MockHouseRepository>();
-builder.Services.AddScoped<IOwnerRepository, MockOwnerRepository>();
+builder.Services.AddScoped<IRegionRepository, RegionRepository>();
+builder.Services.AddScoped<IHouseRepository, HouseRepository>();
+builder.Services.AddScoped<IOwnerRepository, OwnerRepository>();
 builder.Services.AddScoped<IFileWork, FileWork>();
 builder.Services.AddScoped<DialogService>();
 builder.Services.AddDbContext<AppDbContext>(options => options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));

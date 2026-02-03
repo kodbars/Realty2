@@ -7,6 +7,11 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="8.0.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Realty_Db\Realty_Db.csproj" />
     <ProjectReference Include="..\Realty_Models\Realty_Models.csproj" />
   </ItemGroup>
 

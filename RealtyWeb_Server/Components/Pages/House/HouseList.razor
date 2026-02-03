@@ -1,6 +1,5 @@
 ﻿@page "/house"
 @inject IHouseRepository _houseRepository
-@inject IRegionRepository _regionRepository
 @inject IJSRuntime _JS
 @inject IFileWork _fileWork
 
@@ -39,7 +38,7 @@
                                     <input type="checkbox" disabled checked="@item.IsMortagege" />
                                 </td>
                                 <td>
-                                    @Regions.Where(x => x.Id == item.RegionId)?.FirstOrDefault()?.Nm
+                                    @item.Region?.Nm
                                 </td>
                                 <td>
                                     @item.Address
@@ -76,7 +75,6 @@
 </div>
 
 @code {
-    private IEnumerable<Region> Regions { get; set; } = new List<Region>();
     private IEnumerable<House> Houses { get; set; } = new List<House>();
     public bool IsLoading { get; set; } = true;
     public int RemoveHouseId { get; set; } = 0;
@@ -104,7 +102,6 @@
     }
     private async Task LoadHouses()
     {
-        Regions = await _regionRepository.GetAll();
         Houses = await _houseRepository.GetAll();
         IsLoading = false;
     }
