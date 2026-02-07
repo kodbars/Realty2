@@ -110,6 +110,23 @@
     </nav>
 </div>
 
+<AuthorizeView>
+    <Authorized>
+        <div class="nav-item px-3">
+            <NavLink class="nav-link" href="login">
+                <i class="bi bi-box-arrow-left" style="font-size: 1.5rem; color: white; margin-top:-1.5rem;" aria-hidden="true"></i> Выйти
+            </NavLink>
+        </div>
+    </Authorized>
+    <NotAuthorized>
+        <div class="nav-item px-3">
+            <NavLink class="nav-link" href="login">
+                <i class="bi bi-box-arrow-right" style="font-size: 1.5rem; color: white; margin-top:-1.5rem;" aria-hidden="true"></i> Войти
+            </NavLink>
+        </div>
+    </NotAuthorized>
+</AuthorizeView>
+
 @code {
     [CascadingParameter]
     public _StateCounter stateCounter { get; set; } = null!;

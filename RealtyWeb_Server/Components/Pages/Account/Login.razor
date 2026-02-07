@@ -1,0 +1,56 @@
+﻿@page "/login"
+@inject IJSRuntime _JSRuntime
+
+<AuthorizeView>
+    <Authorized>
+        <b>Выйти из системы?</b><br />
+        <div class="col-md-6">
+            <div class="form-grop my-3">
+                <button class="btn btn-primary" @onclick="btnLogout_Click">Выход</button>
+            </div>
+        </div>
+    </Authorized>
+    <NotAuthorized>
+        <b>Аутентификация в система</b><br />
+        <div class="col-md-6">
+            <div class="form-grop my-3">
+                <input class="form-control" type="text" placeholder="Имя пользователя" @bind="@Username" />
+            </div>
+            <div class="form-grop my-2">
+                <input class="form-control" type="password" placeholder="Пароль" @bind="@Password" />
+            </div>
+            <div class="form-grop my-2">
+                <button class="btn btn-primary" @onclick="btnLogin_Click">Вход</button>
+            </div>
+        </div>
+    </NotAuthorized>
+</AuthorizeView>
+
+@code {
+    string Username = "admin";
+    string Password = "123";
+
+    private async void btnLogin_Click()
+    {
+        bool IsExistsUser = false;
+        if (Username.ToLower().Equals("admin") && Password.Equals("123"))
+        {
+            IsExistsUser = true;
+        }
+        if (IsExistsUser)
+        {
+            var authModule = await _JSRuntime.InvokeAsync<IJSObjectReference>("import", "./js/auth.js");
+            await authModule.InvokeVoidAsync("SignIn", Username, "Administrator", "./");
+        }
+        else
+        {
+            await _JSRuntime.NotyfError("Пользователь ну существует или доступ запрещен!");
+        }
+    }
+
+    private async void btnLogout_Click()
+    {
+        var authModule = await _JSRuntime.InvokeAsync<IJSObjectReference>("import", "./js/auth.js");
+        await authModule.InvokeVoidAsync("SignOut", "./");
+    }
+}

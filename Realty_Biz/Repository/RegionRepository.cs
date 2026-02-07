@@ -12,15 +12,16 @@ namespace Realty_Biz.Repository
 {
     public class RegionRepository : IRegionRepository
     {
-        private readonly AppDbContext _db;
+        IDbContextFactory<AppDbContext> _factory;
 
-        public RegionRepository(AppDbContext db)
+        public RegionRepository(IDbContextFactory<AppDbContext> factory)
         {
-            _db = db;
+            _factory = factory;
         }
 
         public async Task<Region> Create(Region obj)
         {
+            using var _db = _factory.CreateDbContext();
             var addedObj = _db.Regions.Add(obj);
             await _db.SaveChangesAsync();
             return addedObj.Entity;
@@ -28,6 +29,7 @@ namespace Realty_Biz.Repository
 
         public async Task<int> Delete(int id)
         {
+            using var _db = _factory.CreateDbContext();
             var obj = await _db.Regions.FirstOrDefaultAsync(x => x.Id == id);
             if (obj != null) 
             {
@@ -39,6 +41,7 @@ namespace Realty_Biz.Repository
 
         public async Task<Region> Get(int id)
         {
+            using var _db = _factory.CreateDbContext();
             var obj = await _db.Regions.FirstOrDefaultAsync(x => x.Id == id);
             if (obj != null)
             {
@@ -49,11 +52,13 @@ namespace Realty_Biz.Repository
 
         public async Task<IEnumerable<Region>> GetAll()
         {
+            using var _db = _factory.CreateDbContext();
             return await _db.Regions.ToListAsync();
         }
 
         public async Task<Region> Update(Region obj)
         {
+            using var _db = _factory.CreateDbContext();
             _db.Regions.Update(obj);
             await _db.SaveChangesAsync();
             return obj;

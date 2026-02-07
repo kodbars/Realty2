@@ -12,15 +12,17 @@ namespace Realty_Biz.Repository
 {
     public class HouseRepository : IHouseRepository
     {
-        private readonly AppDbContext _db;
+        IDbContextFactory<AppDbContext> _factory;
 
-        public HouseRepository(AppDbContext db)
+        public HouseRepository(IDbContextFactory<AppDbContext> factory)
         {
-            _db = db;
+            _factory = factory;
         }
+
 
         public async Task<House> Create(House obj)
         {
+            using var _db = _factory.CreateDbContext();
             var addedObj = _db.Houses.Add(obj);
             await _db.SaveChangesAsync();
             return addedObj.Entity;
@@ -28,6 +30,7 @@ namespace Realty_Biz.Repository
 
         public async Task<int> Delete(int id)
         {
+            using var _db = _factory.CreateDbContext();
             var obj = await _db.Houses.FirstOrDefaultAsync(x => x.Id == id);
             if (obj != null)
             {
@@ -39,6 +42,7 @@ namespace Realty_Biz.Repository
 
         public async Task<House> Get(int id)
         {
+            using var _db = _factory.CreateDbContext();
             var obj = await _db.Houses.Include(x => x.Region).FirstOrDefaultAsync(x => x.Id == id);
             if (obj != null)
             {
@@ -49,13 +53,18 @@ namespace Realty_Biz.Repository
 
         public async Task<IEnumerable<House>> GetAll()
         {
+            using var _db = _factory.CreateDbContext();
             return await _db.Houses.Include(x => x.Region).ToListAsync();
         }
 
         public async Task<House> Update(House obj)
         {
-            _db.Houses.Update(obj);
-            await _db.SaveChangesAsync();
+            using var _db = _factory.CreateDbContext();
+            if (await _db.Houses.FirstOrDefaultAsync(x => x.Id == obj.Id) is House found)
+            {
+                _db.Entry(found).CurrentValues.SetValues(obj);
+                await _db.SaveChangesAsync();
+            }
             return obj;
         }
     }

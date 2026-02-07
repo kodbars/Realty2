@@ -12,15 +12,16 @@ namespace Realty_Biz.Repository
 {
     public class OwnerRepository : IOwnerRepository
     {
-        private readonly AppDbContext _db;
+        IDbContextFactory<AppDbContext> _factory;
 
-        public OwnerRepository(AppDbContext db)
+        public OwnerRepository(IDbContextFactory<AppDbContext> factory)
         {
-            _db = db;
+            _factory = factory;
         }
 
         public async Task<Owner> Create(Owner obj)
         {
+            using var _db = _factory.CreateDbContext();
             try
             {
                 var addedObj = _db.Owners.Add(obj);
@@ -36,6 +37,7 @@ namespace Realty_Biz.Repository
 
         public async Task<int> Delete(int id)
         {
+            using var _db = _factory.CreateDbContext();
             var obj = await _db.Owners.FirstOrDefaultAsync(x => x.Id == id);
             if (obj != null)
             {
@@ -47,6 +49,7 @@ namespace Realty_Biz.Repository
 
         public async Task<Owner> Get(int id)
         {
+            using var _db = _factory.CreateDbContext();
             var obj = await _db.Owners.FirstOrDefaultAsync(x => x.Id == id);
             if (obj != null)
             {
@@ -57,6 +60,7 @@ namespace Realty_Biz.Repository
 
         public async Task<IEnumerable<Owner>> GetAll(int? id = null)
         {
+            using var _db = _factory.CreateDbContext();
             if (id != null && id > 0)
             {
                 return await _db.Owners.Where(x => x.HouseId == id).ToListAsync();
@@ -69,6 +73,7 @@ namespace Realty_Biz.Repository
 
         public async Task<Owner> Update(Owner obj)
         {
+            using var _db = _factory.CreateDbContext();
             try
             {
                 _db.Owners.Update(obj);

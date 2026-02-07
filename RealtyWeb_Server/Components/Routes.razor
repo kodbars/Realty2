@@ -1,8 +1,18 @@
 ﻿<_StateCounter>
     <Router AppAssembly="typeof(Program).Assembly">
         <Found Context="routeData">
-            <RouteView RouteData="routeData" DefaultLayout="typeof(Layout.MainLayout)" />
+            @*<RouteView RouteData="routeData" DefaultLayout="typeof(Layout.MainLayout)" />*@
             <FocusOnNavigate RouteData="routeData" Selector="h1" />
+            <AuthorizeRouteView RouteData="@routeData" DefaultLayout="@typeof(MainLayout)">
+                <NotAuthorized>
+                    <h1>Извините</h1>
+                    <p>Вы не авторизованы для доступа к этой странице</p>
+                    <p>Нажмите <a href="login" target="_top">здесь</a>, чтобы войти в систему.</p>
+                </NotAuthorized>
+                <Authorizing>
+                    <h1>Выполняется авторизация!</h1>
+                </Authorizing>
+            </AuthorizeRouteView>
         </Found>
     </Router>
 </_StateCounter>
