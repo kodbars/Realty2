@@ -23,14 +23,15 @@ builder.Services.AddScoped<DialogService>();
 builder.Services.AddDbContextFactory<AppDbContext>(options => options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
 builder.Services.AddRadzenComponents();
 builder.Services.AddControllers();
-builder.Services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme)
-    .AddCookie(options =>
+builder.Services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme).AddCookie(options =>
     {
         options.LoginPath = "/login";
         options.Cookie.Name = "realty_auth";
         options.Cookie.SameSite = Microsoft.AspNetCore.Http.SameSiteMode.Strict;
+        options.EventsType = typeof(RealtyWeb_Server.Controllers.CookieAuthenticationEvents);
     }
     );
+builder.Services.AddScoped<RealtyWeb_Server.Controllers.CookieAuthenticationEvents>();
 builder.Services.AddCascadingAuthenticationState();
 
 var app = builder.Build();

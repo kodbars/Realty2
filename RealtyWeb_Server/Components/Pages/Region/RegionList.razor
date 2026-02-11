@@ -1,6 +1,8 @@
 ﻿@page "/region"
+@attribute [Authorize(Roles = "Administrator")]
 @inject IRegionRepository _regionRepository
 @inject IJSRuntime _JS
+
 
 <_RemoveConfirmation ConfirmationChanged="ConfirmRemove_Click" IsProcessingRunning="IsLoading"></_RemoveConfirmation>
 <div class="row mt-4">
