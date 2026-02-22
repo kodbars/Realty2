@@ -1,0 +1,71 @@
+﻿@page "/addnewbuilding"
+@inject HttpClient Http
+@inject NavigationManager NavigationManager
+@inject IJSRuntime JsRuntime
+
+<h2>Добавить ЖК</h2>
+<div class="row">
+    <div class="col-md-6">
+        <div class="form-group">
+            <label for="NameHouse">Наименование *</label>
+            <input form="NameHouse" class="form-control" @bind="@newbuilding.NameHouse" />
+        </div>
+    </div>
+    <div class="col-md-6">
+        <div class="form-group">
+            <label for="TypeHouse">Тип дома *</label>
+            <input form="TypeHouse" class="form-control" @bind="@newbuilding.TypeHouse" />
+        </div>
+    </div>
+    <div class="col-md-6">
+        <div class="form-group">
+            <label for="Address">Адрес *</label>
+            <input form="Address" class="form-control" @bind="@newbuilding.Address" />
+        </div>
+    </div>
+    <div class="col-md-6">
+        <div class="form-group">
+            <label for="YearOfDelivery">Год сдачи *</label>
+            <input form="YearOfDelivery" type="number" class="form-control" @bind="@newbuilding.YearOfDelivery" />
+        </div>
+    </div>
+    <div class="col-md-6">
+        <div class="form-group">
+            <label for="NumOfApart">Количество квартир *</label>
+            <input form="NumOfApart" type="number" class="form-control" @bind="@newbuilding.NumOfApart" />
+        </div>
+    </div>
+    <div class="col-md-6">
+        <div class="form-group">
+            <label for="NumOfStoreys">Этажность *</label>
+            <input form="NumOfStoreys" type="number" class="form-control" @bind="@newbuilding.NumOfStoreys" />
+        </div>
+    </div>
+    <div class="col-md-6 mt-2">
+        <div class="form-group">
+            <label for="IsParking">Парковка</label>
+            <input form="IsParking" type="checkbox" @bind="@newbuilding.IsParking" />
+        </div>
+    </div>
+    <div class="row mt-2">
+        <div class="col-md-4">
+            <div class="form-group">
+                <input type="button" class="btn btn-primary" @onclick="@Save" value="Сохранить" />
+                <input type="button" class="btn btn-secondary" @onclick="@Cancel" value="Отмена" />
+            </div>
+        </div>
+    </div>
+</div>
+
+@code {
+    Newbuilding newbuilding = new Newbuilding() { IsParking = false };
+    protected async Task Save()
+    {
+
+    }
+
+    void Cancel()
+    {
+        
+    }
+}
