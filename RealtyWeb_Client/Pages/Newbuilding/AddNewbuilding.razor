@@ -61,11 +61,28 @@
     Newbuilding newbuilding = new Newbuilding() { IsParking = false };
     protected async Task Save()
     {
-
+        try
+        {
+            var response = await Http.PostAsJsonAsync("api/newbuilding", newbuilding);
+            Newbuilding? newbuildingResponse = await response.Content.ReadFromJsonAsync<Newbuilding>();
+            if (newbuildingResponse?.Id > 0)
+            {
+                await JsRuntime.InvokeVoidAsync("alert", "Добавлено успешно!");
+                NavigationManager.NavigateTo("newbuildingList");
+            }
+            else
+            {
+                await JsRuntime.InvokeVoidAsync("alert", "Добавдение не выполнено!");
+            }
+        }
+        catch (Exception ex)
+        {
+            await JsRuntime.InvokeVoidAsync("alert", ex.Message);   
+        }
     }
 
     void Cancel()
     {
-        
+        NavigationManager.NavigateTo("newbuildingList");
     }
 }

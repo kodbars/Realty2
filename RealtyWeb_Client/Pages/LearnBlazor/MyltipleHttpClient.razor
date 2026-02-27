@@ -1,0 +1,28 @@
+﻿@page "/myltipleHttpClient"
+@inject YandexService yandexService;
+@inject WebApiService webApiService;
+@inject IHttpClientFactory factory;
+
+<h1>Веб API</h1>
+Yandex Url: @yandexAddress<br/>
+WebApi Url: @webApiAddress
+
+@code {
+    string? yandexAddress;
+    string? webApiAddress;
+    List<Newbuilding>? searchResult;
+
+    protected override void OnInitialized()
+    {
+        base.OnInitialized();
+        yandexAddress = yandexService.GetBaseUrl();
+        webApiAddress = webApiService.GetBaseUrl();
+    }
+
+    protected override async Task OnInitializedAsync()
+    {
+        var client = factory.CreateClient("webapi");
+        var search = await client.GetAsync("api/newbuilding");
+        searchResult = await search.Content.ReadFromJsonAsync<List<Newbuilding>>();
+    }
+}

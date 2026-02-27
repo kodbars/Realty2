@@ -1,0 +1,29 @@
+﻿@page "/login"
+
+<div class="row">
+    <div class="cl-md-6 offset-md-3">
+        <h1>Внести данные</h1>
+        <EditForm Model="@LoginData" OnValidSubmit="LoginAsync">
+            <DataAnnotationsValidator/>
+            <ValidationSummary/>
+            <label for="username">Имя пользователя</label>
+            <InputText id="username" @bind-Value="@LoginData.UserName" class="form-control" style="width:300px;"></InputText>
+
+            <label for="password">Пароль</label>
+            <InputText type="password" id="password" @bind-Value="@LoginData.Password" class="form-control" style="width:300px;"></InputText>
+
+            <p class="my-4">
+                <button type="submit" class="btn btn-primary">Войти</button>
+            </p>
+        </EditForm>
+    </div>
+</div>
+
+@code {
+    public LoginViewModel LoginData { get; set; } = new LoginViewModel();
+
+    protected Task LoginAsync()
+    {
+        return Task.CompletedTask;
+    }
+}

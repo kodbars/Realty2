@@ -1,0 +1,66 @@
+﻿@page "/deleteNewbuilding/{Id}"
+@inject HttpClient Http
+@inject NavigationManager NavigationManager
+@inject IJSRuntime JsRuntime
+
+<h2>Удаление ЖК</h2>
+@if (newbuilding != null)
+{
+    <div class="row">
+        <div class="col-md-4">
+            <p>Вы, уверены что хотите удалить этот ЖК: <b>@newbuilding?.NameHouse</b>?</p>
+            <div class="card">
+                <div class="card-body">
+                    Тип дома: @newbuilding?.TypeHouse<br />
+                    Адрес: @newbuilding?.Address
+                </div>
+            </div>
+        </div>
+    </div>
+}
+<div class="row mt-2">
+    <div class="col-md-4">
+        <div class="form-group">
+            <input type="button" class="btn btn-primary" @onclick="@Delete" value="Удалить" />
+            <input type="button" class="btn btn-secondary" @onclick="@Cancel" value="Отмена" />
+        </div>
+    </div>
+</div>
+
+@code {
+    [Parameter]
+    public string Id { get; set; } = string.Empty;
+    Newbuilding? newbuilding = new Newbuilding();
+
+    protected override async Task OnInitializedAsync()
+    {
+        newbuilding = await Http.GetFromJsonAsync<Newbuilding>($"api/newbuilding/{Id}") ?? new();
+    }
+
+    protected async Task Delete()
+    {
+        try
+        {
+            var response = await Http.DeleteAsync($"api/newbuilding/{Id}");
+            bool deleteResponse = await response.Content.ReadFromJsonAsync<bool>();
+            if (deleteResponse)
+            {
+                await JsRuntime.InvokeVoidAsync("alert", "Удалено успешно!");
+                NavigationManager.NavigateTo("newbuildingList");
+            }
+            else
+            {
+                await JsRuntime.InvokeVoidAsync("alert", "Удаление не выполнено!");
+            }
+        }
+        catch (Exception ex)
+        {
+            await JsRuntime.InvokeVoidAsync("alert", ex.Message);
+        }
+    }
+
+    void Cancel()
+    {
+        NavigationManager.NavigateTo("newbuildingList");
+    }
+}

@@ -1,42 +1,22 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "F:\\VS_Project\\Realty2\\",
+  "WorkspaceRootPath": "D:\\Program\\RepositoryProject\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{C065E14C-B885-45BE-950A-E997831CA133}|RealtyWeb_Client\\RealtyWeb_Client.csproj|f:\\vs_project\\realty2\\realtyweb_client\\pages\\newbuilding\\addnewnewbuilding.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{C065E14C-B885-45BE-950A-E997831CA133}|RealtyWeb_Client\\RealtyWeb_Client.csproj|solutionrelative:realtyweb_client\\pages\\newbuilding\\addnewnewbuilding.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+      "AbsoluteMoniker": "D:0:0:{C065E14C-B885-45BE-950A-E997831CA133}|RealtyWeb_Client\\RealtyWeb_Client.csproj|d:\\program\\repositoryproject\\realtyweb_client\\pages\\account\\login.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{C065E14C-B885-45BE-950A-E997831CA133}|RealtyWeb_Client\\RealtyWeb_Client.csproj|solutionrelative:realtyweb_client\\pages\\account\\login.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{C065E14C-B885-45BE-950A-E997831CA133}|RealtyWeb_Client\\RealtyWeb_Client.csproj|f:\\vs_project\\realty2\\realtyweb_client\\pages\\newbuilding\\newbuildinglist.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{C065E14C-B885-45BE-950A-E997831CA133}|RealtyWeb_Client\\RealtyWeb_Client.csproj|solutionrelative:realtyweb_client\\pages\\newbuilding\\newbuildinglist.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+      "AbsoluteMoniker": "D:0:0:{C065E14C-B885-45BE-950A-E997831CA133}|RealtyWeb_Client\\RealtyWeb_Client.csproj|d:\\program\\repositoryproject\\realtyweb_client\\utils\\specialauthenticationstateprovider.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C065E14C-B885-45BE-950A-E997831CA133}|RealtyWeb_Client\\RealtyWeb_Client.csproj|solutionrelative:realtyweb_client\\utils\\specialauthenticationstateprovider.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{C065E14C-B885-45BE-950A-E997831CA133}|RealtyWeb_Client\\RealtyWeb_Client.csproj|f:\\vs_project\\realty2\\realtyweb_client\\_imports.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "AbsoluteMoniker": "D:0:0:{C065E14C-B885-45BE-950A-E997831CA133}|RealtyWeb_Client\\RealtyWeb_Client.csproj|d:\\program\\repositoryproject\\realtyweb_client\\models\\loginviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C065E14C-B885-45BE-950A-E997831CA133}|RealtyWeb_Client\\RealtyWeb_Client.csproj|solutionrelative:realtyweb_client\\models\\loginviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C065E14C-B885-45BE-950A-E997831CA133}|RealtyWeb_Client\\RealtyWeb_Client.csproj|d:\\program\\repositoryproject\\realtyweb_client\\_imports.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
       "RelativeMoniker": "D:0:0:{C065E14C-B885-45BE-950A-E997831CA133}|RealtyWeb_Client\\RealtyWeb_Client.csproj|solutionrelative:realtyweb_client\\_imports.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{C065E14C-B885-45BE-950A-E997831CA133}|RealtyWeb_Client\\RealtyWeb_Client.csproj|f:\\vs_project\\realty2\\realtyweb_client\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{C065E14C-B885-45BE-950A-E997831CA133}|RealtyWeb_Client\\RealtyWeb_Client.csproj|solutionrelative:realtyweb_client\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{C065E14C-B885-45BE-950A-E997831CA133}|RealtyWeb_Client\\RealtyWeb_Client.csproj|f:\\vs_project\\realty2\\realtyweb_client\\wwwroot\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
-      "RelativeMoniker": "D:0:0:{C065E14C-B885-45BE-950A-E997831CA133}|RealtyWeb_Client\\RealtyWeb_Client.csproj|solutionrelative:realtyweb_client\\wwwroot\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{3E24B1BD-805F-46E7-A497-26ABA5FBDAF9}|RealtyWeb_API\\RealtyWeb_API.csproj|f:\\vs_project\\realty2\\realtyweb_api\\controllers\\newbuildingcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{3E24B1BD-805F-46E7-A497-26ABA5FBDAF9}|RealtyWeb_API\\RealtyWeb_API.csproj|solutionrelative:realtyweb_api\\controllers\\newbuildingcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{C065E14C-B885-45BE-950A-E997831CA133}|RealtyWeb_Client\\RealtyWeb_Client.csproj|f:\\vs_project\\realty2\\realtyweb_client\\layout\\navmenu.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{C065E14C-B885-45BE-950A-E997831CA133}|RealtyWeb_Client\\RealtyWeb_Client.csproj|solutionrelative:realtyweb_client\\layout\\navmenu.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{3E24B1BD-805F-46E7-A497-26ABA5FBDAF9}|RealtyWeb_API\\RealtyWeb_API.csproj|f:\\vs_project\\realty2\\realtyweb_api\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{3E24B1BD-805F-46E7-A497-26ABA5FBDAF9}|RealtyWeb_API\\RealtyWeb_API.csproj|solutionrelative:realtyweb_api\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{7ACC17E0-06E3-40B1-8130-74E3ED542368}|RealtyWeb_Server\\RealtyWeb_Server.csproj|f:\\vs_project\\realty2\\realtyweb_server\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{7ACC17E0-06E3-40B1-8130-74E3ED542368}|RealtyWeb_Server\\RealtyWeb_Server.csproj|solutionrelative:realtyweb_server\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -46,122 +26,59 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 0,
+          "SelectedChildIndex": 3,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "AddNewnewbuilding.razor",
-              "DocumentMoniker": "F:\\VS_Project\\Realty2\\RealtyWeb_Client\\Pages\\Newbuilding\\AddNewnewbuilding.razor",
-              "RelativeDocumentMoniker": "RealtyWeb_Client\\Pages\\Newbuilding\\AddNewnewbuilding.razor",
-              "ToolTip": "F:\\VS_Project\\Realty2\\RealtyWeb_Client\\Pages\\Newbuilding\\AddNewnewbuilding.razor",
-              "RelativeToolTip": "RealtyWeb_Client\\Pages\\Newbuilding\\AddNewnewbuilding.razor",
-              "ViewState": "AgIAAC4AAAAAfE0PCqr0v0IAAAANAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2026-02-19T10:06:30.486Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "_Imports.razor",
-              "DocumentMoniker": "F:\\VS_Project\\Realty2\\RealtyWeb_Client\\_Imports.razor",
-              "RelativeDocumentMoniker": "RealtyWeb_Client\\_Imports.razor",
-              "ToolTip": "F:\\VS_Project\\Realty2\\RealtyWeb_Client\\_Imports.razor",
-              "RelativeToolTip": "RealtyWeb_Client\\_Imports.razor",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAUAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2026-02-18T16:31:32.028Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
               "DocumentIndex": 1,
-              "Title": "NewbuildingList.razor",
-              "DocumentMoniker": "F:\\VS_Project\\Realty2\\RealtyWeb_Client\\Pages\\Newbuilding\\NewbuildingList.razor",
-              "RelativeDocumentMoniker": "RealtyWeb_Client\\Pages\\Newbuilding\\NewbuildingList.razor",
-              "ToolTip": "F:\\VS_Project\\Realty2\\RealtyWeb_Client\\Pages\\Newbuilding\\NewbuildingList.razor",
-              "RelativeToolTip": "RealtyWeb_Client\\Pages\\Newbuilding\\NewbuildingList.razor",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAUAAAAbAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2026-02-18T16:30:26.643Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 6,
-              "Title": "NavMenu.razor",
-              "DocumentMoniker": "F:\\VS_Project\\Realty2\\RealtyWeb_Client\\Layout\\NavMenu.razor",
-              "RelativeDocumentMoniker": "RealtyWeb_Client\\Layout\\NavMenu.razor",
-              "ToolTip": "F:\\VS_Project\\Realty2\\RealtyWeb_Client\\Layout\\NavMenu.razor",
-              "RelativeToolTip": "RealtyWeb_Client\\Layout\\NavMenu.razor",
-              "ViewState": "AgIAABEAAAAAAAAAAAAAwB4AAAAOAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2026-02-15T13:49:53.326Z",
+              "Title": "SpecialAuthenticationStateProvider.cs",
+              "DocumentMoniker": "D:\\Program\\RepositoryProject\\RealtyWeb_Client\\Utils\\SpecialAuthenticationStateProvider.cs",
+              "RelativeDocumentMoniker": "RealtyWeb_Client\\Utils\\SpecialAuthenticationStateProvider.cs",
+              "ToolTip": "D:\\Program\\RepositoryProject\\RealtyWeb_Client\\Utils\\SpecialAuthenticationStateProvider.cs",
+              "RelativeToolTip": "RealtyWeb_Client\\Utils\\SpecialAuthenticationStateProvider.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAABVAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-02-27T16:08:21.592Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 3,
-              "Title": "Program.cs",
-              "DocumentMoniker": "F:\\VS_Project\\Realty2\\RealtyWeb_Client\\Program.cs",
-              "RelativeDocumentMoniker": "RealtyWeb_Client\\Program.cs",
-              "ToolTip": "F:\\VS_Project\\Realty2\\RealtyWeb_Client\\Program.cs",
-              "RelativeToolTip": "RealtyWeb_Client\\Program.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-02-15T13:34:27.419Z",
+              "Title": "_Imports.razor",
+              "DocumentMoniker": "D:\\Program\\RepositoryProject\\RealtyWeb_Client\\_Imports.razor",
+              "RelativeDocumentMoniker": "RealtyWeb_Client\\_Imports.razor",
+              "ToolTip": "D:\\Program\\RepositoryProject\\RealtyWeb_Client\\_Imports.razor",
+              "RelativeToolTip": "RealtyWeb_Client\\_Imports.razor",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAAAPAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-02-27T15:49:29.124Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "appsettings.json",
-              "DocumentMoniker": "F:\\VS_Project\\Realty2\\RealtyWeb_Client\\wwwroot\\appsettings.json",
-              "RelativeDocumentMoniker": "RealtyWeb_Client\\wwwroot\\appsettings.json",
-              "ToolTip": "F:\\VS_Project\\Realty2\\RealtyWeb_Client\\wwwroot\\appsettings.json",
-              "RelativeToolTip": "RealtyWeb_Client\\wwwroot\\appsettings.json",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAEAAAANAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
-              "WhenOpened": "2026-02-15T13:21:31.169Z",
+              "DocumentIndex": 2,
+              "Title": "LoginViewModel.cs",
+              "DocumentMoniker": "D:\\Program\\RepositoryProject\\RealtyWeb_Client\\Models\\LoginViewModel.cs",
+              "RelativeDocumentMoniker": "RealtyWeb_Client\\Models\\LoginViewModel.cs",
+              "ToolTip": "D:\\Program\\RepositoryProject\\RealtyWeb_Client\\Models\\LoginViewModel.cs",
+              "RelativeToolTip": "RealtyWeb_Client\\Models\\LoginViewModel.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-02-27T15:39:29.51Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "NewbuildingController.cs",
-              "DocumentMoniker": "F:\\VS_Project\\Realty2\\RealtyWeb_API\\Controllers\\NewbuildingController.cs",
-              "RelativeDocumentMoniker": "RealtyWeb_API\\Controllers\\NewbuildingController.cs",
-              "ToolTip": "F:\\VS_Project\\Realty2\\RealtyWeb_API\\Controllers\\NewbuildingController.cs",
-              "RelativeToolTip": "RealtyWeb_API\\Controllers\\NewbuildingController.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAAbAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-02-15T08:34:39.761Z",
+              "DocumentIndex": 0,
+              "Title": "Login.razor",
+              "DocumentMoniker": "D:\\Program\\RepositoryProject\\RealtyWeb_Client\\Pages\\Account\\Login.razor",
+              "RelativeDocumentMoniker": "RealtyWeb_Client\\Pages\\Account\\Login.razor",
+              "ToolTip": "D:\\Program\\RepositoryProject\\RealtyWeb_Client\\Pages\\Account\\Login.razor",
+              "RelativeToolTip": "RealtyWeb_Client\\Pages\\Account\\Login.razor",
+              "ViewState": "AgIAAAIAAAAAAAAAAAAAAB0AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-02-27T15:31:43.825Z",
               "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 8,
-              "Title": "Program.cs",
-              "DocumentMoniker": "F:\\VS_Project\\Realty2\\RealtyWeb_Server\\Program.cs",
-              "RelativeDocumentMoniker": "RealtyWeb_Server\\Program.cs",
-              "ToolTip": "F:\\VS_Project\\Realty2\\RealtyWeb_Server\\Program.cs",
-              "RelativeToolTip": "RealtyWeb_Server\\Program.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-02-14T17:02:31.599Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 7,
-              "Title": "Program.cs",
-              "DocumentMoniker": "F:\\VS_Project\\Realty2\\RealtyWeb_API\\Program.cs",
-              "RelativeDocumentMoniker": "RealtyWeb_API\\Program.cs",
-              "ToolTip": "F:\\VS_Project\\Realty2\\RealtyWeb_API\\Program.cs",
-              "RelativeToolTip": "RealtyWeb_API\\Program.cs",
-              "ViewState": "AgIAAAgAAAAAAAAAAAAAwCMAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-02-14T17:02:12.475Z"
             }
           ]
         }
