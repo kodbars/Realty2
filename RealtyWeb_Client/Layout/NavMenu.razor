@@ -20,9 +20,9 @@
             </NavLink>
         </div>
         @*<div class="nav-item px-3">
-            <NavLink class="nav-link" href="weather">
-                <span class="bi bi-list-nested-nav-menu" aria-hidden="true"></span> Weather
-            </NavLink>
+        <NavLink class="nav-link" href="weather">
+        <span class="bi bi-list-nested-nav-menu" aria-hidden="true"></span> Weather
+        </NavLink>
         </div>*@
         <div class="nav-item px-3">
             <NavLink class="nav-link" href="newbuildingList">
@@ -34,6 +34,23 @@
                 <span class="bi bi-list-nested-nav-menu" aria-hidden="true"></span> HttpClient
             </NavLink>
         </div>
+        <AuthorizeView>
+            <Authorized>
+                <div class="nav-item px-3">
+                    <NavLink class="nav-link" href="logoff">
+                        <span class="bi bi-list-nested-nav-menu" aria-hidden="true"></span> Выход
+                    </NavLink>
+                </div>
+            </Authorized>
+            <NotAuthorized>
+                <div class="nav-item px-3">
+                    <NavLink class="nav-link" href="login">
+                        <span class="bi bi-list-nested-nav-menu" aria-hidden="true"></span> Вход
+                    </NavLink>
+                </div>
+            </NotAuthorized>
+        </AuthorizeView>
+
     </nav>
 </div>
 

@@ -1,0 +1,28 @@
+﻿@page "/logoff"
+@inject NavigationManager _NavigationManager
+@inject AuthenticationStateProvider Provider
+
+<h3>Logoff</h3>
+<AuthorizeView>
+    <Authorized>
+        <b>Выйти из системы?</b><br/>
+        <div class="col-md-6">
+            <div class="form-group my-3">
+                <button class="btn btn-primary" @onclick="btnLogout_Click">Выход</button>
+            </div>
+        </div>
+    </Authorized>
+    <NotAuthorized>
+        <RedirectToLoginComponent/>
+    </NotAuthorized>
+</AuthorizeView>
+
+
+
+@code {
+    private void btnLogout_Click()
+    {
+        ((SpecialAuthenticationStateProvider)Provider).MakeUserAnonymous();
+        _NavigationManager.NavigateTo("./");
+    }
+}

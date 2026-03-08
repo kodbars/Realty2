@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio Version 18
-VisualStudioVersion = 18.0.11121.172
+# Visual Studio Version 17
+VisualStudioVersion = 17.10.35027.167
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RealtyWeb_Server", "RealtyWeb_Server\RealtyWeb_Server.csproj", "{7ACC17E0-06E3-40B1-8130-74E3ED542368}"
 EndProject
@@ -13,9 +13,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "InputboxComponents", "Input
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Realty_Biz", "Realty_Biz\Realty_Biz.csproj", "{97BB47F4-B1EE-44E4-A3C6-8585611BD56D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Realty_Db", "Realty_Db\Realty_Db.csproj", "{F8CAC7CE-B18B-478C-B984-4700198953D9}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Realty_Db", "Realty_Db\Realty_Db.csproj", "{F8CAC7CE-B18B-478C-B984-4700198953D9}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RealtyWeb_API", "RealtyWeb_API\RealtyWeb_API.csproj", "{3E24B1BD-805F-46E7-A497-26ABA5FBDAF9}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RealtyWeb_API", "RealtyWeb_API\RealtyWeb_API.csproj", "{3E24B1BD-805F-46E7-A497-26ABA5FBDAF9}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

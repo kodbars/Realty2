@@ -4,4 +4,12 @@
 
 <h1>Hello, world!</h1>
 
-Welcome to your new app.
+<AuthorizeView Roles="Administrator">
+    <Authorized>
+        Добро пожаловать:
+        <b>@context.User.FindFirst(System.Security.Claims.ClaimTypes.Name)?.Value</b>
+    </Authorized>
+    <NotAuthorized>
+        Вы не авторизованы. Перейдите <a href="login">Войти</a>
+    </NotAuthorized>
+</AuthorizeView>
